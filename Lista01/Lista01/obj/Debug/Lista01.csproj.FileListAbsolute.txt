@@ -1,0 +1,3 @@
+C:\Users\Diogo\source\repos\Lista01\Lista01\obj\Debug\Lista01.csproj.AssemblyReference.cache
+C:\Users\Diogo\source\repos\Lista01\Lista01\obj\Debug\Lista01.csproj.SuggestedBindingRedirects.cache
+C:\Users\Diogo\source\repos\Lista01\Lista01\obj\Debug\Lista01.csproj.CoreCompileInputs.cache
