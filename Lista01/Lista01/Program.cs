@@ -203,6 +203,35 @@ namespace Lista01
     }
     class Ex11
     {
+        static void Main(string[] args)
+        {
+            double investimento = 1000.0;
 
+            double variacao1 = -12.4 / 100.0;
+            double variacao2 = 1.8 / 100.0;
+            double variacao3 = 5.6 / 100.0;
+            double variacao4 = -4.5 / 100.0;
+
+            investimento *= (1.0 + variacao1);
+            investimento *= (1.0 + variacao2);
+            investimento *= (1.0 + variacao3);
+            investimento *= (1.0 + variacao4);
+
+            Console.WriteLine("Valor atual dos investimentos: R$ " + investimento.ToString("F2"));
+        }
+    }
+    class Ex12
+    {
+        static void Main(string[] args)
+        {
+            Console.Write("Digite a altura em metros: ");
+            double altura = double.Parse(Console.ReadLine());
+
+            double pesoHomem = (72.7 * altura) - 58.0;
+            double pesoMulher = (62.1 * altura) - 44.7;
+
+            Console.WriteLine("Para homens: " + pesoHomem.ToString("F2") + " kg");
+            Console.WriteLine("Para mulheres: " + pesoMulher.ToString("F2") + " kg");
+        }
     }
 }
