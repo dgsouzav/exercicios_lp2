@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Lista01
 {
-    class Ex01
+    public class Program
     {
-        static void Main(string[] args)
+        static void Ex01(string[] args)
         {
             double salarioMinimo, salarioPessoa, salarioLiquido;
             const double DESCONTO_INSS = 0.085; // 8,5%
@@ -24,11 +24,9 @@ namespace Lista01
 
             Console.WriteLine("A pessoa ganha {0:f2} salários-mínimos líquidos.", salariosMinimos);
         }
-    }
 
-    class Ex02 
-    {
-        static void Main(string[] args)
+
+        static void Ex02(string[] args)
         {
             double metros, centimetros, milimetros;
 
@@ -40,11 +38,8 @@ namespace Lista01
 
             Console.WriteLine("{0} metros correspondem a {1} centímetros e {2} milímetros.", metros, centimetros, milimetros);
         }
-    }
 
-    class Ex03
-    {
-        static void Main(string[] args)
+        static void Ex03(string[] args)
         {
             Console.Write("Digite o valor em graus Fahrenheit: ");
             float fahrenheit = float.Parse(Console.ReadLine());
@@ -58,11 +53,8 @@ namespace Lista01
 
             Console.WriteLine("O valor em graus Celsius é: " + celsius2);
         }
-    }
 
-    class Ex04
-    {
-        static void Main(string[] args)
+        static void Ex04(string[] args)
         {
             Console.Write("Digite o seu peso em quilogramas: ");
             double peso = double.Parse(Console.ReadLine());
@@ -91,11 +83,8 @@ namespace Lista01
                 Console.WriteLine("Você está com obesidade.");
             }
         }
-    }
 
-    class Ex05
-    {
-        static void Main(string[] args)
+        static void Ex05(string[] args)
         {
             Console.Write("Digite o primeiro número: ");
             double numero1 = double.Parse(Console.ReadLine());
@@ -120,11 +109,8 @@ namespace Lista01
 
             Console.WriteLine("A média ponderada é: " + mediaPonderada.ToString("F2"));
         }
-    }
 
-    class Ex06
-    {
-        static void Main(string[] args)
+        static void Ex06(string[] args)
         {
             // Ler a distância percorrida
             Console.Write("Digite a distância percorrida (em metros): ");
@@ -140,11 +126,7 @@ namespace Lista01
             // Imprimir o resultado
             Console.WriteLine("A velocidade média é: " + velocidade.ToString("F2") + " m/s");
         }
-    }
-
-    class Ex07
-    {
-        static void Main(string[] args)
+        static void Ex07(string[] args)
         {
             Console.Write("Digite o salário atual do funcionário: ");
             double salarioAtual = double.Parse(Console.ReadLine());
@@ -153,11 +135,8 @@ namespace Lista01
 
             Console.WriteLine("O novo salário do funcionário é: " + novoSalario.ToString("C"));
         }
-    }
 
-    class Ex08
-    {
-        static void Main(string[] args)
+        static void Ex08(string[] args)
         {
             Console.Write("Digite o valor em reais: ");
             double valorEmReais = double.Parse(Console.ReadLine());
@@ -169,10 +148,8 @@ namespace Lista01
 
             Console.WriteLine("O valor correspondente em dólares é: " + valorEmDolares.ToString("C"));
         }
-    }
-    class Ex09
-    {
-        static void Main(string[] args)
+
+        static void Ex09(string[] args)
         {
             Console.Write("Digite um número inteiro: ");
             int numero = int.Parse(Console.ReadLine());
@@ -183,10 +160,8 @@ namespace Lista01
 
             Console.WriteLine("A soma do antecessor do triplo com o sucessor do dobro é: " + resultado);
         }
-    }
-    class Ex10
-    {
-        static void Main(string[] args)
+
+        static void Ex10(string[] args)
         {
             Console.Write("Digite um número inteiro de 4 dígitos: ");
             int numero = int.Parse(Console.ReadLine());
@@ -200,10 +175,8 @@ namespace Lista01
             Console.WriteLine(d3);
             Console.WriteLine(d4);
         }
-    }
-    class Ex11
-    {
-        static void Main(string[] args)
+
+        static void Ex11(string[] args)
         {
             double investimento = 1000.0;
 
@@ -219,10 +192,8 @@ namespace Lista01
 
             Console.WriteLine("Valor atual dos investimentos: R$ " + investimento.ToString("F2"));
         }
-    }
-    class Ex12
-    {
-        static void Main(string[] args)
+
+        static void Ex12(string[] args)
         {
             Console.Write("Digite a altura em metros: ");
             double altura = double.Parse(Console.ReadLine());
@@ -232,6 +203,68 @@ namespace Lista01
 
             Console.WriteLine("Para homens: " + pesoHomem.ToString("F2") + " kg");
             Console.WriteLine("Para mulheres: " + pesoMulher.ToString("F2") + " kg");
+        }
+
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Escolha o exercicio: ");
+            Console.WriteLine("1 - Ex01");
+            Console.WriteLine("2 - Ex02");
+            Console.WriteLine("3 - Ex03");
+            Console.WriteLine("4 - Ex04");
+            Console.WriteLine("5 - Ex05");
+            Console.WriteLine("6 - Ex06");
+            Console.WriteLine("7 - Ex07");
+            Console.WriteLine("8 - Ex08");
+            Console.WriteLine("9 - Ex09");
+            Console.WriteLine("10 - Ex10");
+            Console.WriteLine("11 - Ex11");
+            Console.WriteLine("12 - Ex12");
+
+            int opcao = int.Parse(Console.ReadLine());
+
+            switch (opcao)
+            {
+                case 1:
+                    Ex01(args);
+                    break;
+                case 2:
+                    Ex02(args);
+                    break;
+                case 3:
+                    Ex03(args);
+                    break;
+                case 4:
+                    Ex04(args);
+                    break;
+                case 5:
+                    Ex05(args);
+                    break;
+                case 6:
+                    Ex06(args);
+                    break;
+                case 7:
+                    Ex07(args);
+                    break;
+                case 8:
+                    Ex08(args);
+                    break;
+                case 9:
+                    Ex09(args);
+                    break;
+                case 10:
+                    Ex10(args);
+                    break;
+                case 11:
+                    Ex11(args);
+                    break;
+                case 12:
+                    Ex12(args);
+                    break;
+                default:
+                    Console.WriteLine("Opção inválida!");
+                    break;
+            }
         }
     }
 }
