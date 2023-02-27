@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Lista02
 {
-    internal class Program
+    public class Program
     {
         static void Ex01(string[] args)
         {
@@ -161,53 +161,84 @@ namespace Lista02
             }
         }
 
-        static void Menu(string[] args)
+        static void Main(string[] args)
         {
-            static void Main(string[] args)
+            Console.WriteLine("Escolha o exercício:");
+            Console.WriteLine("1 - Ex01");
+            Console.WriteLine("2 - Ex02");
+            Console.WriteLine("3 - Ex03");
+            Console.WriteLine("4 - Ex04");
+            Console.WriteLine("5 - Ex05");
+            Console.WriteLine("6 - Ex06");
+
+            int opcao = int.Parse(Console.ReadLine());
+
+            switch (opcao)
             {
-                Console.WriteLine("Escolha uma opção:");
-                Console.WriteLine("1 - Exercício 1");
-                Console.WriteLine("2 - Exercício 2");
-                Console.WriteLine("3 - Exercício 3");
-                Console.WriteLine("4 - Exercício 4");
-                Console.WriteLine("5 - Exercício 5");
-                Console.WriteLine("6 - Exercício 6");
-                Console.WriteLine("7 - Sair");
-
-                int opcao = int.Parse(Console.ReadLine());
-
-                switch (opcao)
-                {
-                    case 1:
-                        Ex01.Main(args);
-                        break;
-                    case 2:
-                        Ex02.Main(args);
-                        break;
-                    case 3:
-                        Ex03.Main(args);
-                        break;
-                    case 4:
-                        Ex04.Main(args);
-                        break;
-                    case 5:
-                        Ex05.Main(args);
-                        break;
-                    case 6:
-                        Ex06.Main(args);
-                        break;
-                    case 7:
-                        return;
-                    default:
-                        Console.WriteLine("Opção inválida!");
-                        break;
-                }
-
-                Console.WriteLine("Pressione qualquer tecla para continuar...");
-                Console.ReadKey();
-                Console.Clear();
-                Main(args);
+                case 1:
+                    Ex01(args);
+                    break;
+                case 2:
+                    Ex02(args);
+                    break;
+                case 3:
+                    Ex03(args);
+                    break;
+                case 4:
+                    Ex04(args);
+                    break;
+                case 5:
+                    Ex05(args);
+                    break;
+                case 6:
+                    Ex06(args);
+                    break;
+                default:
+                    Console.WriteLine("Opção inválida!");
+                    break;
             }
         }
     }
 }
+
+    //// menu
+    //class Menu
+    //{
+    //    static void Main(string[] args)
+    //    {
+    //        Console.WriteLine("Escolha o exercício:");
+    //        Console.WriteLine("1 - Ex01");
+    //        Console.WriteLine("2 - Ex02");
+    //        Console.WriteLine("3 - Ex03");
+    //        Console.WriteLine("4 - Ex04");
+    //        Console.WriteLine("5 - Ex05");
+    //        Console.WriteLine("6 - Ex06");
+
+    //        int opcao = int.Parse(Console.ReadLine());
+
+    //        switch (opcao)
+    //        {
+    //            case 1:
+    //                Ex01(args);
+    //                break;
+    //            case 2:
+    //                Ex02(args);
+    //                break;
+    //            case 3:
+    //                Ex03(args);
+    //                break;
+    //            case 4:
+    //                Ex04(args);
+    //                break;
+    //            case 5:
+    //                Ex05(args);
+    //                break;
+    //            case 6:
+    //                Ex06(args);
+    //                break;
+    //            default:
+    //                Console.WriteLine("Opção inválida!");
+    //                break;
+    //        }
+    //    }
+    //}
