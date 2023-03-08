@@ -1,14 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Teste1
+namespace Lista04
 {
-    internal class Program
+    public class MinhaCLasseBase
     {
-        static void Main(string[] args)
+
+    }
+
+    public class MinhaClasseDerivada : MinhaCLasseBase
+    {
+
+    }
+
+    public class Program
+    {
+        public static void Main(string[] args)
         {
 
             //// length
@@ -86,14 +97,51 @@ namespace Teste1
             //    }
             //}
 
-            // EndsWith
-            String[] strings = {"Essa é uma string.", "Ola!", "Nada.", "Ola mundo.", "Ola mundo cruel"};
+            //// EndsWith
+            //String[] strings = {"Essa é uma string.", "Ola!", "Nada.", "Ola mundo.", "Ola mundo cruel"};
 
-            foreach (var value in strings)
-            {
-                bool endsInPeriod = value.EndsWith(".");
-                Console.WriteLine("'{0}' termina em: {1}", value, endsInPeriod);
-            }
+            //foreach (var value in strings)
+            //{
+            //    bool endsInPeriod = value.EndsWith(".");
+            //    Console.WriteLine("'{0}' termina em: {1}", value, endsInPeriod);
+            //}
+
+            // Equals
+            //string[] threeIs = { "i", "ı", "I" };
+            //Type scType = typeof(StringComparison);
+
+            //Console.WriteLine("The current culture is {0}.\n",
+            //                  System.Globalization.CultureInfo.CurrentCulture.Name);
+
+            //foreach (string scName in Enum.GetNames(scType))
+            //{
+            //    StringComparison sc = (StringComparison)Enum.Parse(scType, scName);
+            //    Console.WriteLine("Comparisons using {0}:", sc);
+            //    for (int ctr = 0; ctr <= 1; ctr++)
+            //    {
+            //        string instanceChar = threeIs[ctr];
+            //        for (int innerCtr = ctr + 1; innerCtr <= threeIs.GetUpperBound(0); innerCtr++)
+            //        {
+            //            string otherChar = threeIs[innerCtr];
+            //            Console.WriteLine("{0} (U+{1}) = {2} (U+{3}): {4}",
+            //                              instanceChar, Convert.ToInt16(Char.Parse(instanceChar)).ToString("X4"),
+            //                              otherChar, Convert.ToInt16(Char.Parse(otherChar)).ToString("X4"),
+            //                              instanceChar.Equals(otherChar, sc));
+            //        }
+            //        Console.WriteLine();
+            //    }
+            //}
+
+            //// GetType
+            //MinhaCLasseBase minhaBase = new MinhaCLasseBase();
+            //MinhaClasseDerivada minhaDerivada = new MinhaClasseDerivada();
+            //object o = minhaDerivada;
+            //MinhaCLasseBase b = minhaDerivada;
+
+            //Console.WriteLine("minhaBase: o tipo é {0}", minhaBase.GetType());
+            //Console.WriteLine("minhaDerivada: o tipo é {0}", minhaDerivada.GetType());
+            //Console.WriteLine("objeto o = minhaDerivada: o tipo é {0}", o.GetType());
+            //Console.WriteLine("MinhaClasseBase b = minhaDerivada: o tipo é {0}", b.GetType());
 
 
             Console.ReadKey();
