@@ -69,12 +69,50 @@ namespace Lista03
             float media = soma / n;
             Console.WriteLine("\nNumeros maiores ou iguais as medias");
 
-           for(int i = 0; i < n; i++)
+            for (int i = 0; i < n; i++)
             {
                 Console.WriteLine(numeros[i]);
             }
             Console.ReadKey();
+        }
+
+        static void Ex03(string[] args)
+        {
+            Console.WriteLine("Digite o tamanho do vetor:");
+            int n = int.Parse(Console.ReadLine());
+
+            double[] vetor = new double[n];
+
+            Random rand = new Random();
+
+            for (int i = 0; i < n; i++)
+            {
+                vetor[i] = rand.NextDouble() * 100;
+            }
+
+            double media = 0;
+            for (int i = 0; i < n; i++)
+            {
+                media += vetor[i];
+            }
+            media /= n;
+
+            Console.WriteLine("Números maiores ou iguais à média:");
+            for (int i = 0; i < n; i++)
+            {
+                if (vetor[i] >= media)
+                {
+                    Console.WriteLine(vetor[i]);
+                }
+            }
+            Console.ReadKey();
+        }
+
+        static void Ex04(string[] args)
+        {
 
         }
+
     }
+
 }
