@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Lista03
 {
-    internal class Program
+    public class Program
     {
-        static void Ex01(string[] args)
+        public static void Ex01(string[] args)
         {
             Console.WriteLine("Digite o tamanho do vetor: ");
             int n = int.Parse(Console.ReadLine());
@@ -44,7 +44,7 @@ namespace Lista03
             Console.ReadKey();
         }
 
-        static void Ex02(string[] args)
+        public static void Ex02(string[] args)
         {
             Console.WriteLine("Digite um valor: ");
             int n = int.Parse(Console.ReadLine());
@@ -76,7 +76,7 @@ namespace Lista03
             Console.ReadKey();
         }
 
-        static void Ex03(string[] args)
+        public static void Ex03(string[] args)
         {
             Console.WriteLine("Digite o tamanho do vetor:");
             int n = int.Parse(Console.ReadLine());
@@ -108,11 +108,39 @@ namespace Lista03
             Console.ReadKey();
         }
 
-        static void Ex04(string[] args)
-        {
-
+        public static void Ex04(string[] args)
+        { 
+            
         }
 
-    }
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Escolha o exercicio:");
+            Console.WriteLine("1 - Ex01");
+            Console.WriteLine("2 - Ex02");
+            Console.WriteLine("3 - Ex03");
+            Console.WriteLine("4 - Ex04");
 
+            int opcao = int.Parse(Console.ReadLine());
+
+            switch (opcao)
+            {
+                case 1:
+                    Ex01(args);
+                    break;
+                case 2:
+                    Ex02(args);
+                    break;
+                case 3:
+                    Ex03(args);
+                    break;
+                case 4:
+                    Ex04(args);
+                    break;
+                default:
+                    Console.WriteLine("Opção inválida");
+                    break;
+            }
+        }
+    }
 }
