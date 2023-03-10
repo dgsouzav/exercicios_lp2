@@ -113,16 +113,22 @@ namespace Lista03
             string[,] matriz = new string[3, 3];
             string turno = "X";
 
+            List<string> IndexNumeros = new List<string>(); { };
+
+
             int index = 1;
 
-            int tentativas = 0;
+            int tentativas = 1;
 
-            // preenchendo a matriz
+            Console.WriteLine(" --JOGO DA VELHA-- ");
+
+            //  alimentando a matriz
             for (int i = 0; i < matriz.GetLength(0); i++)
             {
-                for (int j = 0; j < matriz.GetLength(1); i++)
+                for (int j = 0; j < matriz.GetLength(1); j++)
                 {
                     matriz[i, j] = index.ToString();
+                    IndexNumeros.Add(index.ToString());
                     index++;
                 }
             }
@@ -135,67 +141,146 @@ namespace Lista03
                 }
                 Console.WriteLine();
             }
+            Console.WriteLine();
+            Console.Write($"quer jogar [{turno}] em qual posiçao?")
 
+            string jogada = Console.ReadLine();
+
+            Console.Clear();
+
+            // começa o jogo
             while (tentativas < 9)
             {
-                string jogada = Console.ReadLine();
+                Console.WriteLine(" --JOGO DA VELHA-- ");
 
+                // substituir o valor na sua respectiva casa
                 for (int i = 0; i < matriz.GetLength(0); i++)
                 {
                     for (int i = 0; j < matriz.GetLength(1); j++)
                     {
-                        if (matriz[i, j] == jogada)
+                        if (matriz[i, j] == jogada && IndexNumeros.Contains(jogada))
                         {
                             matriz[i, j] = turno;
-                            tentativas++;
+                            IndexNumeros.Remove(jogada);
                         }
                     }
                 }
 
+                // imprimir a matriz
                 for (int i = 0; i < matriz.GetLength(0); i++)
                 {
                     for (int j = 0; j < matriz.GetLength(1); j++) ;
                     {
                         Console.WriteLine($" [{matriz[i, j]}] ");
                     }
-                        tentativas++;
+                    Console.WriteLine();
+                }
 
-            }        
+                // jogar as posicoes nas matrizes
+                if (turno == "X")
+                {
+                    turno = "O";
+                }
+                else
+                {
+                    turno = "X";
+                }
 
-            Console.ReadLine();
 
-
-
-        }
-
-        static void Main(string[] args)
-        {
-            Console.WriteLine("Escolha o exercicio:");
-            Console.WriteLine("1 - Ex01");
-            Console.WriteLine("2 - Ex02");
-            Console.WriteLine("3 - Ex03");
-            Console.WriteLine("4 - Ex04");
-
-            int opcao = int.Parse(Console.ReadLine());
-
-            switch (opcao)
-            {
-                case 1:
-                    Ex01(args);
+                // vitoria nas diagonais
+                if (matriz[0, 0] == matriz[1, 1] && matriz[1, 1] == matriz[2, 2] ||
+                    matriz[0, 2] == matriz[1, 1] && matriz[1, 1] == matriz[2, 0])
+                {
+                    Console.WriteLine();
+                    Console.WriteLine("fim de jogo")
+                        Console.WriteLine($"O jogador [{turno}] venceu!");
                     break;
-                case 2:
-                    Ex02(args);
+                }
+
+                // vitoria nas linhas
+                if (matriz[0, 0] == matriz[0, 1] && matriz[0, 1] == matriz[0, 2] ||
+                    matriz[1, 0] == matriz[1, 1] && matriz[1, 1] == matriz[1, 2] ||
+                    matriz[2, 0] == matriz[2, 1] && matriz[2, 1] == matriz[2, 2]
+                    )
+                {
+                    Console.WriteLine();
+                    Console.WriteLine("fim de jogo")
+                        Console.WriteLine($"O jogador [{turno}] venceu!");
                     break;
-                case 3:
-                    Ex03(args);
+                }
+
+                // vitoria nas colunas
+                if (matriz[0, 0] == matriz[1, 0] && matriz[1, 0] == matriz[2, 0] ||
+                    matriz[0, 1] == matriz[1, 1] && matriz[1, 1] == matriz[2, 1] ||
+                    matriz[0, 2] == matriz[1, 2] && matriz[1, 2] == matriz[2, 2]
+                    )
+                {
+                    Console.WriteLine();
+                    Console.WriteLine("fim de jogo")
+                        Console.WriteLine($"O jogador [{turno}] venceu!");
                     break;
-                case 4:
-                    Ex04(args);
-                    break;
-                default:
-                    Console.WriteLine("Opção inválida");
-                    break;
+                }
+
+                Console.WriteLine();
+                Console.Write($"voce quer jogar [{turno}] em qual posiçao?")
+
+                jogada= Console.ReadLine();
+
+                // condicao de posicao invalida
+                while (!IndexNumeros.Contains(turno))
+                {
+                    Console.Write("Posição inválida");
+                    Console.WriteLine();
+                    Console.Write($"voce quer jogar [{turno}] em qual posiçao?")
+
+                    jogada = Console.ReadLine();
+                }
+
+                tentativas++;
+
+                Console.Clear();
             }
+
+            // empate ou derrota
+            if (tentativas == 9)
+            {
+                Console.WriteLine();
+                Console.WriteLine("fim de jogo, ninguem ganhou")
+            }
+
         }
+
+            // menu 
+            static void Main(string[] args)
+            {
+                Console.WriteLine("Escolha o exercicio:");
+                Console.WriteLine("1 - Ex01");
+                Console.WriteLine("2 - Ex02");
+                Console.WriteLine("3 - Ex03");
+                Console.WriteLine("4 - Ex04");
+
+                int opcao = int.Parse(Console.ReadLine());
+
+                switch (opcao)
+                {
+                    case 1:
+                        Ex01(args);
+                        break;
+                    case 2:
+                        Ex02(args);
+                        break;
+                    case 3:
+                        Ex03(args);
+                        break;
+                    case 4:
+                        Ex04(args);
+                        break;
+                    default:
+                        Console.WriteLine("Opção inválida");
+                        break;
+
+                }
+
+            }
     }
 }
