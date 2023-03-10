@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Lista03
 {
-    public class Program
+    class Program
     {
-        public static void Ex01(string[] args)
+        static void Ex01(string[] args)
         {
             Console.WriteLine("Digite o tamanho do vetor: ");
             int n = int.Parse(Console.ReadLine());
@@ -44,7 +44,7 @@ namespace Lista03
             Console.ReadKey();
         }
 
-        public static void Ex02(string[] args)
+        static void Ex02(string[] args)
         {
             Console.WriteLine("Digite um valor: ");
             int n = int.Parse(Console.ReadLine());
@@ -76,7 +76,7 @@ namespace Lista03
             Console.ReadKey();
         }
 
-        public static void Ex03(string[] args)
+        static void Ex03(string[] args)
         {
             Console.WriteLine("Digite o tamanho do vetor:");
             int n = int.Parse(Console.ReadLine());
@@ -108,9 +108,64 @@ namespace Lista03
             Console.ReadKey();
         }
 
-        public static void Ex04(string[] args)
-        { 
-            
+        static void Ex04(string[] args)
+        {
+            string[,] matriz = new string[3, 3];
+            string turno = "X";
+
+            int index = 1;
+
+            int tentativas = 0;
+
+            // preenchendo a matriz
+            for (int i = 0; i < matriz.GetLength(0); i++)
+            {
+                for (int j = 0; j < matriz.GetLength(1); i++)
+                {
+                    matriz[i, j] = index.ToString();
+                    index++;
+                }
+            }
+            // imprimir a matriz
+            for (int i = 0; i < matriz.GetLength(0); i++)
+            {
+                for (int j = 0; j < matriz.GetLength(1); j++) ;
+                {
+                    Console.WriteLine($" [{matriz[i, j]}] ");
+                }
+                Console.WriteLine();
+            }
+
+            while (tentativas < 9)
+            {
+                string jogada = Console.ReadLine();
+
+                for (int i = 0; i < matriz.GetLength(0); i++)
+                {
+                    for (int i = 0; j < matriz.GetLength(1); j++)
+                    {
+                        if (matriz[i, j] == jogada)
+                        {
+                            matriz[i, j] = turno;
+                            tentativas++;
+                        }
+                    }
+                }
+
+                for (int i = 0; i < matriz.GetLength(0); i++)
+                {
+                    for (int j = 0; j < matriz.GetLength(1); j++) ;
+                    {
+                        Console.WriteLine($" [{matriz[i, j]}] ");
+                    }
+                        tentativas++;
+
+            }        
+
+            Console.ReadLine();
+
+
+
         }
 
         static void Main(string[] args)
