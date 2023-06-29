@@ -52,7 +52,7 @@ namespace Estoque
             }
         }
 
-        private void ClearFields()
+        private void ClearFields() // Método para limpar os campos do formulário
         {
             txbNome.Clear();
             txbQtd.Clear();

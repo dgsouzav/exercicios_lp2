@@ -37,14 +37,13 @@ namespace Estoque
             this.Close();
         }
 
-        private void btnEntrar_Click(object sender, EventArgs e)
+        private void btnEntrar_Click(object sender, EventArgs e) // Botão entrar(login)
         {
             UsuarioDAO usuarioLogin = new UsuarioDAO();
             Usuario usuario = new Usuario(txtEmail.Text, txtSenha.Text);
-            if (usuarioLogin.Login(usuario) || txtEmail.Text == "adm" && txtSenha.Text == "adm")
+            if (usuarioLogin.Login(usuario) || txtEmail.Text == "adm" && txtSenha.Text == "adm") // Se o login for realizado com sucesso, abre a tela principal
             {
                 MessageBox.Show("Login realizado com sucesso!");
-                //this.Close();
                 new TelaPrincipal().ShowDialog();
             }
             else

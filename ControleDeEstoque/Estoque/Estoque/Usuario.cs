@@ -8,7 +8,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace Estoque
 {
-    internal class Usuario
+    internal class Usuario  // Classe usuário
     {
         private int id;
         private string nome;
@@ -22,13 +22,14 @@ namespace Estoque
         private string senha;
 
 
-        public Usuario(string email, string senha)
+        public Usuario(string email, string senha) // Construtor para login
         {
             this.email = email;
             this.senha = senha;
         }
 
-        public Usuario(string nome, string senha, string email, string telefone, string cpf, string endereco, string cep, string cidade, string estado)
+        public Usuario(string nome, string senha, string email, 
+            string telefone, string cpf, string endereco, string cep, string cidade, string estado) // Construtor para cadastro
         {
             this.nome=nome;
             this.senha=senha;
@@ -41,7 +42,8 @@ namespace Estoque
             this.estado=estado;
         }
 
-        public Usuario(int ID, string nome, string cpf, string endereco, string cep, string cidade, string estado, string telefone, string email, string senha)
+        public Usuario(int ID, string nome, string cpf, string endereco, 
+            string cep, string cidade, string estado, string telefone, string email, string senha) // Construtor para alterar
         {
             ID = id;
             Nome = nome;

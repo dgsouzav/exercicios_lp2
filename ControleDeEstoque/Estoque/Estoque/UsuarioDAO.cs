@@ -19,7 +19,7 @@ namespace Estoque
             Con = new Conexao();
             Cmd = new SqlCommand();
         }
-        public void Inserir(Usuario usuario)
+        public void Inserir(Usuario usuario)  // Inserir usuário
         {
             Cmd.Connection = Con.ReturnConnection();
             Cmd.CommandText = @"INSERT INTO Usuario VALUES (@nome, @cpf, @endereco, @cep, @cidade, @estado, @telefone, @email, @senha)";
@@ -46,15 +46,15 @@ namespace Estoque
                 Con.CloseConnection();
             }
         }
-        public List<Usuario> ListarUsuarios()
+        public List<Usuario> ListarUsuarios()  // Listar usuários
         {
             Cmd.Connection = Con.ReturnConnection();
             Cmd.CommandText = @"SELECT * FROM Usuario";
 
             List<Usuario> usuarios = new List<Usuario>();
             try
-            {
-                SqlDataReader rd = Cmd.ExecuteReader();
+            { 
+                SqlDataReader rd = Cmd.ExecuteReader();  // leitor de dados
 
                 while (rd.Read())
                 {
@@ -86,7 +86,7 @@ namespace Estoque
         }
 
 
-        public void Atualizar(Usuario usuario)
+        public void Atualizar(Usuario usuario) // Atualizar usuário
         {
             Cmd.Connection = Con.ReturnConnection();
             Cmd.CommandText = @"UPDATE Usuario SET Nome = @nome, 
@@ -104,7 +104,7 @@ namespace Estoque
 
             try
             {
-                Cmd.ExecuteNonQuery();
+                Cmd.ExecuteNonQuery(); // executa a query
             }
             catch (SqlException e)
             {
@@ -115,7 +115,7 @@ namespace Estoque
                 Con.CloseConnection();
             }
         }
-        public void Deletar(int id)
+        public void Deletar(int id) // Deletar usuário
         {
             Cmd.Connection = Con.ReturnConnection();
             Cmd.CommandText = @"DELETE FROM Usuario WHERE ID = @id";
@@ -135,16 +135,14 @@ namespace Estoque
             }
         }
 
-        internal bool Login(Usuario usuario)
+        internal bool Login(Usuario usuario) // Login
         {
             Cmd.Connection = Con.ReturnConnection();
             Cmd.CommandText = @"SELECT * FROM Usuario";
-            //Cmd.Parameters.AddWithValue("@email", usuario.Email);
-            
             Cmd.Connection.Open();
             try
             {
-                SqlDataReader rd = Cmd.ExecuteReader();
+                SqlDataReader rd = Cmd.ExecuteReader(); // leitor de dados
 
                 if (rd.Read())
                 {

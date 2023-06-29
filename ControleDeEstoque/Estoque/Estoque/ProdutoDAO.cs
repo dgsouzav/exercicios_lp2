@@ -7,18 +7,18 @@ using System.Threading.Tasks;
 
 namespace Estoque
 {
-    internal class ProdutoDAO
+    internal class ProdutoDAO // internal = só pode ser acessada dentro do projeto
     {
         private Conexao Con { get; set; }
         private SqlCommand Cmd { get; set; }
 
-        public ProdutoDAO()
+        public ProdutoDAO() // Construtor
         {
             Con = new Conexao();
             Cmd = new SqlCommand();
-            Cmd.Connection = Con.ReturnConnection(); // atribui a conexão ao comando SqlCommand
+            Cmd.Connection = Con.ReturnConnection(); 
         }
-        public void Inserir(Produto produto)
+        public void Inserir(Produto produto) // Método para inserir um produto no banco de dados
         {
             using (SqlConnection connection = Con.ReturnConnection())
             {
@@ -38,7 +38,7 @@ namespace Estoque
         }
 
 
-        public void Atualizar(Produto produto)
+        public void Atualizar(Produto produto) // Método para atualizar um produto no banco de dados
         {
             using (SqlConnection connection = Con.ReturnConnection())
             {
@@ -56,7 +56,7 @@ namespace Estoque
         }
 
 
-        public void Deletar(int id)
+        public void Deletar(int id) // Método para deletar um produto no banco de dados
         {
             using (SqlConnection connection = Con.ReturnConnection())
             {
@@ -75,11 +75,11 @@ namespace Estoque
             return Cmd;
         }
 
-        public List<Produto> ListarProdutos()
+        public List<Produto> ListarProdutos()  // Método para listar todos os produtos do banco de dados
         {
             using (SqlConnection connection = Con.ReturnConnection())
             {
-                connection.Open(); // Abre a conexão com o banco de dados
+                connection.Open(); 
 
                 Cmd.Connection = connection;
                 Cmd.CommandText = @"SELECT * FROM Produto";

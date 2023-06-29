@@ -12,18 +12,17 @@ namespace Estoque
 {
     public partial class CadastroUsuario : Form
     {
-        public CadastroUsuario()
+        public CadastroUsuario()  // Construtor
         {
             InitializeComponent();
         }
 
-        private void voltarAoMenuToolStripMenuItem_Click(object sender, EventArgs e)
+        private void voltarAoMenuToolStripMenuItem_Click(object sender, EventArgs e) // Botão voltar ao menu
         {
-            // voltar a TelaPrincipal
             this.Close();
         }
 
-        private void ClearFields()
+        private void ClearFields() // Limpa os campos
         {
             txbNome.Clear();
             txbEndereco.Clear();
@@ -36,7 +35,7 @@ namespace Estoque
             txbSenha.Clear();
         }
 
-        private void btnCadastro_Click(object sender, EventArgs e)
+        private void btnCadastro_Click(object sender, EventArgs e) // Botão cadastrar
         {
             try
             {
@@ -51,17 +50,13 @@ namespace Estoque
                 usuario.Email = txbEmail.Text;
                 usuario.Senha = txbSenha.Text;
 
-                // Cria uma instância do UsuarioDAO
-                UsuarioDAO usuarioDAO = new UsuarioDAO();
+                UsuarioDAO usuarioDAO = new UsuarioDAO(); // 
 
-                // Chama o método Inserir passando o objeto usuario
-                usuarioDAO.Inserir(usuario);
+                usuarioDAO.Inserir(usuario); // 
 
-                // Limpa os campos após a inserção
                 ClearFields();
 
-                // Atualiza a ListView com os dados atualizados do banco de dados
-                UpdateListView();
+                UpdateListView(); // 
             }
             catch (Exception ex)
             {
@@ -85,40 +80,37 @@ namespace Estoque
 
         }
 
-        private void UpdateListView()
+        private void UpdateListView() // atualiza a lista de usuários
         {
-            // Limpa a lista de usuários
             ltvUsuario.Items.Clear();
 
-            // Cria uma instância do UsuarioDAO
             UsuarioDAO usuarioDAO = new UsuarioDAO();
 
-            // Obtém a lista de usuários do banco de dados
             List<Usuario> usuarios = usuarioDAO.ListarUsuarios();
 
-            // Loop para adicionar os usuários na lista
             foreach (Usuario usuario in usuarios)
             {
-                // Cria um array de strings para armazenar os dados do usuário
                 string[] row =
                 {
-            usuario.Nome,
-            usuario.CPF,
-            usuario.Endereco,
-            usuario.CEP,
-            usuario.Cidade,
-            usuario.Estado,
-            usuario.Telefone,
-            usuario.Email
-        };
+                    usuario.Nome,
+                    usuario.CPF,
+                    usuario.Endereco,
+                    usuario.CEP,
+                    usuario.Cidade,
+                    usuario.Estado,
+                    usuario.Telefone,
+                    usuario.Email
+                };
 
-                // Cria um objeto do tipo ListViewItem para armazenar os dados do usuário
                 ListViewItem lvi = new ListViewItem(row);
 
-                // Adiciona o item na lista de usuários
                 ltvUsuario.Items.Add(lvi);
             }
         }
 
+        private void CadastroUsuario_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

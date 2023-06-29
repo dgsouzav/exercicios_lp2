@@ -2,9 +2,9 @@
 
 namespace Estoque
 {
-    internal class Produto
+    internal class Produto // Classe Produto
     {
-        private int id;  // Corrigido para "id" em vez de "ID"
+        private int id;  
         public string nome;
         public string fornecedor;
         public string categoria;
@@ -13,9 +13,10 @@ namespace Estoque
         public int qtd;
         public string descricao;
 
-        public Produto(int id, string nome, string fornecedor, string categoria, string unidade, decimal preco, int quantidade, string descricao)
+        public Produto(int id, string nome, string fornecedor, string categoria, 
+            string unidade, decimal preco, int quantidade, string descricao) // Construtor
         {
-            this.id = id;  // Atualizado para "this.id" em vez de "ID"
+            this.id = id;  
             Nome = nome;
             Fornecedor = fornecedor;
             Categoria = categoria;

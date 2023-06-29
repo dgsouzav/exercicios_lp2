@@ -16,7 +16,7 @@ namespace Estoque
         private readonly string DataBase = "ControleDeEstoqueBDD";
         string stringConnection;
 
-        public Conexao()
+        public Conexao() // Construtor
         {
             stringConnection = @"Data Source=" + Environment.MachineName +
                 @"; Initial Catalog=" + DataBase + ";Integrated Security=True";
