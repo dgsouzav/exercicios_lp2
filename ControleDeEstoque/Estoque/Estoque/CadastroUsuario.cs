@@ -10,82 +10,69 @@ using System.Windows.Forms;
 
 namespace Estoque
 {
-    public partial class CadastroDeUsuario : Form
+    public partial class CadastroUsuario : Form
     {
-        private int id;
-        public CadastroDeUsuario()
+        public CadastroUsuario()
         {
             InitializeComponent();
         }
 
-        private void UpdateListView()
+        private void voltarAoMenuToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ltvUsuario.Items.Clear();
-            UsuarioDAO usuarioDAO = new UsuarioDAO();
-
-            List<Usuario> usuarios = usuarioDAO.ListarUsuarios();
-            if(usuarios.Count > 0)
-            {
-                foreach(Usuario usuario in usuarios)
-                {
-                    ListViewItem item = new ListViewItem(usuario.ID.ToString());
-                    item.SubItems.Add(usuario.Nome);
-                    item.SubItems.Add(usuario.Senha);
-                    item.SubItems.Add(usuario.Email);
-                    item.SubItems.Add(usuario.Telefone);
-                    item.SubItems.Add(usuario.CPF);
-                    item.SubItems.Add(usuario.Endereco);
-                    item.SubItems.Add(usuario.CEP);
-                    item.SubItems.Add(usuario.Cidade);
-                    item.SubItems.Add(usuario.Estado);
-                }
-            }
-        }
-
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void CadastroDeUsuario_Load(object sender, EventArgs e)
-        {
-            UpdateListView();
+            // voltar a TelaPrincipal
+            this.Close();
         }
 
         private void ClearFields()
         {
             txbNome.Clear();
-            txbSenha.Clear();
-            txbEmail.Clear();
-            txbTelefone.Clear();
-            txbCPF.Clear();
             txbEndereco.Clear();
-            txbCEP.Clear(); 
+            txbCEP.Clear();
             txbCidade.Clear();
             txbEstado.Clear();
-            btnDeletar.Visible = false;
+            txbTelefone.Clear();
+            txbCPF.Clear();
+            txbEmail.Clear();
+            txbSenha.Clear();
+        }
 
+        private void btnCadastro_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Usuario usuario = new Usuario(txbNome.Text, txbSenha.Text,txbEmail.Text,txbTelefone.Text,txbCPF.Text,txbEndereco.Text,txbCEP.Text,txbCidade.Text,txbEstado.Text);
+                usuario.Nome = txbNome.Text;
+                usuario.CPF = txbCPF.Text;
+                usuario.Endereco = txbEndereco.Text;
+                usuario.CEP = txbCEP.Text;
+                usuario.Cidade = txbCidade.Text;
+                usuario.Estado = txbEstado.Text;
+                usuario.Telefone = txbTelefone.Text;
+                usuario.Email = txbEmail.Text;
+                usuario.Senha = txbSenha.Text;
+
+                // Cria uma instância do UsuarioDAO
+                UsuarioDAO usuarioDAO = new UsuarioDAO();
+
+                // Chama o método Inserir passando o objeto usuario
+                usuarioDAO.Inserir(usuario);
+
+                // Limpa os campos após a inserção
+                ClearFields();
+
+                // Atualiza a ListView com os dados atualizados do banco de dados
+                UpdateListView();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao cadastrar usuário: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
 
         private void btnDeletar_Click(object sender, EventArgs e)
         {
-            {
-                UsuarioDAO usuarioDAO = new UsuarioDAO();
 
-                try
-                {
-                    usuarioDAO.Deletar(id);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message, "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-                ClearFields();
-                UpdateListView();
-            }
         }
 
         private void btnLimpar_Click(object sender, EventArgs e)
@@ -97,26 +84,41 @@ namespace Estoque
         {
 
         }
-        private void ltvUsuario_MouseClick(object sender, MouseEventArgs e)
-        {
-            int index = ltvUsuario.FocusedItem.Index;
-            id = int.Parse(ltvUsuario.Items[index].SubItems[0].Text);
-            txbNome.Text = ltvUsuario.Items[index].SubItems[1].Text;
-            txbSenha.Text = ltvUsuario.Items[index].SubItems[2].Text;
-            txbEmail.Text = ltvUsuario.Items[index].SubItems[3].Text;
-            txbTelefone.Text = ltvUsuario.Items[index].SubItems[4].Text;
-            txbCPF.Text = ltvUsuario.Items[index].SubItems[5].Text;
-            txbEndereco.Text = ltvUsuario.Items[index].SubItems[6].Text;
-            txbCEP.Text = ltvUsuario.Items[index].SubItems[7].Text;
-            txbCidade.Text = ltvUsuario.Items[index].SubItems[8].Text;
-            txbEstado.Text = ltvUsuario.Items[index].SubItems[9].Text;
 
-            btnDeletar.Visible = true;
+        private void UpdateListView()
+        {
+            // Limpa a lista de usuários
+            ltvUsuario.Items.Clear();
+
+            // Cria uma instância do UsuarioDAO
+            UsuarioDAO usuarioDAO = new UsuarioDAO();
+
+            // Obtém a lista de usuários do banco de dados
+            List<Usuario> usuarios = usuarioDAO.ListarUsuarios();
+
+            // Loop para adicionar os usuários na lista
+            foreach (Usuario usuario in usuarios)
+            {
+                // Cria um array de strings para armazenar os dados do usuário
+                string[] row =
+                {
+            usuario.Nome,
+            usuario.CPF,
+            usuario.Endereco,
+            usuario.CEP,
+            usuario.Cidade,
+            usuario.Estado,
+            usuario.Telefone,
+            usuario.Email
+        };
+
+                // Cria um objeto do tipo ListViewItem para armazenar os dados do usuário
+                ListViewItem lvi = new ListViewItem(row);
+
+                // Adiciona o item na lista de usuários
+                ltvUsuario.Items.Add(lvi);
+            }
         }
 
-        private void voltarAoMenuToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-           this.Close();
-        }
     }
 }

@@ -138,17 +138,18 @@ namespace Estoque
         internal bool Login(Usuario usuario)
         {
             Cmd.Connection = Con.ReturnConnection();
-            Cmd.CommandText = @"SELECT * FROM Usuario WHERE Email = @email";
-            Cmd.Parameters.AddWithValue("@email", usuario.Email);
-                
+            Cmd.CommandText = @"SELECT * FROM Usuario";
+            //Cmd.Parameters.AddWithValue("@email", usuario.Email);
+            
+            Cmd.Connection.Open();
             try
             {
                 SqlDataReader rd = Cmd.ExecuteReader();
 
                 if (rd.Read())
                 {
-                    string senha = (string)rd["Senha"];
-                    if (senha.Equals(usuario.Senha))
+                    string senha = rd["senha"].ToString();
+                    if (usuario.Senha == senha)
                     {
                         return true;
                     }
@@ -161,7 +162,7 @@ namespace Estoque
             }
             finally
             {
-                Con.CloseConnection();
+                Cmd.Connection.Close();
             }
             return false;   
         }

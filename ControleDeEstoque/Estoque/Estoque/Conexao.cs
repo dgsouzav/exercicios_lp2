@@ -12,17 +12,27 @@ namespace Estoque
     // codigo reaproveitado de uma aula
     internal class Conexao
     {
-        private readonly SqlConnection con;
-        private readonly string DataBase = "ControleDeEstoque";
+        public SqlConnection con;
+        private readonly string DataBase = "ControleDeEstoqueBDD";
+        string stringConnection;
+
         public Conexao()
         {
-            string stringConnection = @"Data Source=" + Environment.MachineName +
-                @"\SQLEXPRESS; Initial Catalog=" + DataBase + ";Integrated Security=True";
+            stringConnection = @"Data Source=" + Environment.MachineName +
+                @"; Initial Catalog=" + DataBase + ";Integrated Security=True";
 
             con = new SqlConnection(stringConnection);
-            con.Open();
 
         }
+
+        public void AbrirConexao()
+        {
+            if (con.State == System.Data.ConnectionState.Closed)
+            {
+                con.Open();
+            }
+        }
+        
         public void CloseConnection()
         {
             if(con.State == System.Data.ConnectionState.Open)

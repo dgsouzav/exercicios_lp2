@@ -4,22 +4,28 @@ namespace Estoque
 {
     internal class Produto
     {
-        public int ID;
+        private int id;  // Corrigido para "id" em vez de "ID"
         public string nome;
+        public string fornecedor;
+        public string categoria;
+        public string unidade;
         public decimal preco;
         public int qtd;
         public string descricao;
 
-        public Produto(int ID, string nome, decimal preco, int quantidade, string descricao)
+        public Produto(int id, string nome, string fornecedor, string categoria, string unidade, decimal preco, int quantidade, string descricao)
         {
-            ID = id;
+            this.id = id;  // Atualizado para "this.id" em vez de "ID"
             Nome = nome;
+            Fornecedor = fornecedor;
+            Categoria = categoria;
+            Unidade = unidade;
             Preco = preco;
             Quantidade = quantidade;
             Descricao = descricao;
         }
 
-        public int id
+        public int ID
         {
             get { return id; }
             set { id = value; }
@@ -29,12 +35,49 @@ namespace Estoque
             get { return nome; }
             set
             {
-                if (value.Length > 0)
+                if (!string.IsNullOrEmpty(value))
                     nome = value;
                 else
                     throw new Exception("Nome não pode ser vazio");
             }
         }
+
+        public string Fornecedor
+        {
+            get { return fornecedor; }
+            set
+            {
+                if (value.Length > 0)
+                    fornecedor = value;
+                else
+                    throw new Exception("Fornecedor não pode ser vazio");
+            }
+        }
+
+        public string Categoria
+        {
+            get { return categoria; }
+            set
+            {
+                if (value.Length > 0)
+                    categoria = value;
+                else
+                    throw new Exception("Categoria não pode ser vazia");
+            }
+        }
+
+        public string Unidade
+        {
+            get { return unidade; }
+            set
+            {
+                if (value.Length > 0)
+                    unidade = value;
+                else
+                    throw new Exception("Unidade não pode ser vazia");
+            }
+        }
+        
         public decimal Preco
         {
             get { return preco; }

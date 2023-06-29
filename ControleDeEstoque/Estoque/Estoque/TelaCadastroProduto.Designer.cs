@@ -31,27 +31,28 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.voltarAoMenuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnLimpar = new System.Windows.Forms.Button();
-            this.lblEmail = new System.Windows.Forms.Label();
-            this.txbEmail = new System.Windows.Forms.TextBox();
-            this.lblSenha = new System.Windows.Forms.Label();
-            this.txbSenha = new System.Windows.Forms.TextBox();
-            this.lblEstado = new System.Windows.Forms.Label();
-            this.txbEstado = new System.Windows.Forms.TextBox();
-            this.lblCidade = new System.Windows.Forms.Label();
-            this.txbCidade = new System.Windows.Forms.TextBox();
-            this.lblCEP = new System.Windows.Forms.Label();
-            this.txbCEP = new System.Windows.Forms.TextBox();
-            this.lblEndereco = new System.Windows.Forms.Label();
-            this.txbEndereco = new System.Windows.Forms.TextBox();
-            this.lblCPF = new System.Windows.Forms.Label();
-            this.txbCPF = new System.Windows.Forms.TextBox();
-            this.lblTelefone = new System.Windows.Forms.Label();
-            this.txbTelefone = new System.Windows.Forms.TextBox();
+            this.lblPreco = new System.Windows.Forms.Label();
+            this.txbPreco = new System.Windows.Forms.TextBox();
+            this.lblUnidade = new System.Windows.Forms.Label();
+            this.txbUnidade = new System.Windows.Forms.TextBox();
+            this.lblCategoria = new System.Windows.Forms.Label();
+            this.lblFornecedor = new System.Windows.Forms.Label();
+            this.txbFornecedor = new System.Windows.Forms.TextBox();
+            this.lblDescricao = new System.Windows.Forms.Label();
+            this.txbDescricao = new System.Windows.Forms.TextBox();
+            this.lblQtd = new System.Windows.Forms.Label();
+            this.txbQtd = new System.Windows.Forms.TextBox();
             this.btnDeletar = new System.Windows.Forms.Button();
             this.btnCadastro = new System.Windows.Forms.Button();
-            this.ltvUsuario = new System.Windows.Forms.ListView();
+            this.ltvProduto = new System.Windows.Forms.ListView();
+            this.clhNome = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.clhFornecedor = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.clhCategoria = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.clhUnidade = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.clhQtd = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.txbNome = new System.Windows.Forms.TextBox();
             this.lblNome = new System.Windows.Forms.Label();
+            this.cmbCategoria = new System.Windows.Forms.ComboBox();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -79,134 +80,96 @@
             this.btnLimpar.TabIndex = 45;
             this.btnLimpar.Text = "Limpar";
             this.btnLimpar.UseVisualStyleBackColor = true;
+            this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
             // 
-            // lblEmail
+            // lblPreco
             // 
-            this.lblEmail.AutoSize = true;
-            this.lblEmail.Location = new System.Drawing.Point(12, 176);
-            this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(32, 13);
-            this.lblEmail.TabIndex = 44;
-            this.lblEmail.Text = "Email";
+            this.lblPreco.AutoSize = true;
+            this.lblPreco.Location = new System.Drawing.Point(237, 112);
+            this.lblPreco.Name = "lblPreco";
+            this.lblPreco.Size = new System.Drawing.Size(35, 13);
+            this.lblPreco.TabIndex = 40;
+            this.lblPreco.Text = "Preço";
             // 
-            // txbEmail
+            // txbPreco
             // 
-            this.txbEmail.Location = new System.Drawing.Point(12, 193);
-            this.txbEmail.Name = "txbEmail";
-            this.txbEmail.Size = new System.Drawing.Size(222, 20);
-            this.txbEmail.TabIndex = 43;
+            this.txbPreco.Location = new System.Drawing.Point(240, 126);
+            this.txbPreco.Name = "txbPreco";
+            this.txbPreco.Size = new System.Drawing.Size(222, 20);
+            this.txbPreco.TabIndex = 39;
             // 
-            // lblSenha
+            // lblUnidade
             // 
-            this.lblSenha.AutoSize = true;
-            this.lblSenha.Location = new System.Drawing.Point(237, 177);
-            this.lblSenha.Name = "lblSenha";
-            this.lblSenha.Size = new System.Drawing.Size(38, 13);
-            this.lblSenha.TabIndex = 42;
-            this.lblSenha.Text = "Senha";
+            this.lblUnidade.AutoSize = true;
+            this.lblUnidade.Location = new System.Drawing.Point(12, 110);
+            this.lblUnidade.Name = "lblUnidade";
+            this.lblUnidade.Size = new System.Drawing.Size(47, 13);
+            this.lblUnidade.TabIndex = 38;
+            this.lblUnidade.Text = "Unidade";
             // 
-            // txbSenha
+            // txbUnidade
             // 
-            this.txbSenha.Location = new System.Drawing.Point(240, 193);
-            this.txbSenha.Name = "txbSenha";
-            this.txbSenha.Size = new System.Drawing.Size(222, 20);
-            this.txbSenha.TabIndex = 41;
+            this.txbUnidade.Location = new System.Drawing.Point(12, 126);
+            this.txbUnidade.Name = "txbUnidade";
+            this.txbUnidade.Size = new System.Drawing.Size(222, 20);
+            this.txbUnidade.TabIndex = 37;
             // 
-            // lblEstado
+            // lblCategoria
             // 
-            this.lblEstado.AutoSize = true;
-            this.lblEstado.Location = new System.Drawing.Point(237, 100);
-            this.lblEstado.Name = "lblEstado";
-            this.lblEstado.Size = new System.Drawing.Size(40, 13);
-            this.lblEstado.TabIndex = 40;
-            this.lblEstado.Text = "Estado";
+            this.lblCategoria.AutoSize = true;
+            this.lblCategoria.Location = new System.Drawing.Point(237, 75);
+            this.lblCategoria.Name = "lblCategoria";
+            this.lblCategoria.Size = new System.Drawing.Size(52, 13);
+            this.lblCategoria.TabIndex = 36;
+            this.lblCategoria.Text = "Categoria";
             // 
-            // txbEstado
+            // lblFornecedor
             // 
-            this.txbEstado.Location = new System.Drawing.Point(240, 114);
-            this.txbEstado.Name = "txbEstado";
-            this.txbEstado.Size = new System.Drawing.Size(222, 20);
-            this.txbEstado.TabIndex = 39;
+            this.lblFornecedor.AutoSize = true;
+            this.lblFornecedor.Location = new System.Drawing.Point(12, 73);
+            this.lblFornecedor.Name = "lblFornecedor";
+            this.lblFornecedor.Size = new System.Drawing.Size(61, 13);
+            this.lblFornecedor.TabIndex = 34;
+            this.lblFornecedor.Text = "Fornecedor";
             // 
-            // lblCidade
+            // txbFornecedor
             // 
-            this.lblCidade.AutoSize = true;
-            this.lblCidade.Location = new System.Drawing.Point(12, 98);
-            this.lblCidade.Name = "lblCidade";
-            this.lblCidade.Size = new System.Drawing.Size(40, 13);
-            this.lblCidade.TabIndex = 38;
-            this.lblCidade.Text = "Cidade";
+            this.txbFornecedor.Location = new System.Drawing.Point(12, 89);
+            this.txbFornecedor.Name = "txbFornecedor";
+            this.txbFornecedor.Size = new System.Drawing.Size(222, 20);
+            this.txbFornecedor.TabIndex = 33;
             // 
-            // txbCidade
+            // lblDescricao
             // 
-            this.txbCidade.Location = new System.Drawing.Point(12, 114);
-            this.txbCidade.Name = "txbCidade";
-            this.txbCidade.Size = new System.Drawing.Size(222, 20);
-            this.txbCidade.TabIndex = 37;
+            this.lblDescricao.AutoSize = true;
+            this.lblDescricao.Location = new System.Drawing.Point(240, 148);
+            this.lblDescricao.Name = "lblDescricao";
+            this.lblDescricao.Size = new System.Drawing.Size(55, 13);
+            this.lblDescricao.TabIndex = 32;
+            this.lblDescricao.Text = "Descrição";
             // 
-            // lblCEP
+            // txbDescricao
             // 
-            this.lblCEP.AutoSize = true;
-            this.lblCEP.Location = new System.Drawing.Point(237, 63);
-            this.lblCEP.Name = "lblCEP";
-            this.lblCEP.Size = new System.Drawing.Size(28, 13);
-            this.lblCEP.TabIndex = 36;
-            this.lblCEP.Text = "CEP";
+            this.txbDescricao.Location = new System.Drawing.Point(240, 165);
+            this.txbDescricao.Name = "txbDescricao";
+            this.txbDescricao.Size = new System.Drawing.Size(222, 20);
+            this.txbDescricao.TabIndex = 31;
             // 
-            // txbCEP
+            // lblQtd
             // 
-            this.txbCEP.Location = new System.Drawing.Point(240, 77);
-            this.txbCEP.Name = "txbCEP";
-            this.txbCEP.Size = new System.Drawing.Size(222, 20);
-            this.txbCEP.TabIndex = 35;
+            this.lblQtd.AutoSize = true;
+            this.lblQtd.Location = new System.Drawing.Point(12, 149);
+            this.lblQtd.Name = "lblQtd";
+            this.lblQtd.Size = new System.Drawing.Size(62, 13);
+            this.lblQtd.TabIndex = 30;
+            this.lblQtd.Text = "Quantidade";
             // 
-            // lblEndereco
+            // txbQtd
             // 
-            this.lblEndereco.AutoSize = true;
-            this.lblEndereco.Location = new System.Drawing.Point(12, 61);
-            this.lblEndereco.Name = "lblEndereco";
-            this.lblEndereco.Size = new System.Drawing.Size(53, 13);
-            this.lblEndereco.TabIndex = 34;
-            this.lblEndereco.Text = "Endereço";
-            // 
-            // txbEndereco
-            // 
-            this.txbEndereco.Location = new System.Drawing.Point(12, 77);
-            this.txbEndereco.Name = "txbEndereco";
-            this.txbEndereco.Size = new System.Drawing.Size(222, 20);
-            this.txbEndereco.TabIndex = 33;
-            // 
-            // lblCPF
-            // 
-            this.lblCPF.AutoSize = true;
-            this.lblCPF.Location = new System.Drawing.Point(240, 136);
-            this.lblCPF.Name = "lblCPF";
-            this.lblCPF.Size = new System.Drawing.Size(27, 13);
-            this.lblCPF.TabIndex = 32;
-            this.lblCPF.Text = "CPF";
-            // 
-            // txbCPF
-            // 
-            this.txbCPF.Location = new System.Drawing.Point(240, 153);
-            this.txbCPF.Name = "txbCPF";
-            this.txbCPF.Size = new System.Drawing.Size(222, 20);
-            this.txbCPF.TabIndex = 31;
-            // 
-            // lblTelefone
-            // 
-            this.lblTelefone.AutoSize = true;
-            this.lblTelefone.Location = new System.Drawing.Point(12, 137);
-            this.lblTelefone.Name = "lblTelefone";
-            this.lblTelefone.Size = new System.Drawing.Size(49, 13);
-            this.lblTelefone.TabIndex = 30;
-            this.lblTelefone.Text = "Telefone";
-            // 
-            // txbTelefone
-            // 
-            this.txbTelefone.Location = new System.Drawing.Point(12, 153);
-            this.txbTelefone.Name = "txbTelefone";
-            this.txbTelefone.Size = new System.Drawing.Size(222, 20);
-            this.txbTelefone.TabIndex = 29;
+            this.txbQtd.Location = new System.Drawing.Point(12, 165);
+            this.txbQtd.Name = "txbQtd";
+            this.txbQtd.Size = new System.Drawing.Size(222, 20);
+            this.txbQtd.TabIndex = 29;
             // 
             // btnDeletar
             // 
@@ -216,6 +179,7 @@
             this.btnDeletar.TabIndex = 28;
             this.btnDeletar.Text = "Excluir";
             this.btnDeletar.UseVisualStyleBackColor = true;
+            this.btnDeletar.Click += new System.EventHandler(this.btnDeletar_Click);
             // 
             // btnCadastro
             // 
@@ -225,20 +189,49 @@
             this.btnCadastro.TabIndex = 27;
             this.btnCadastro.Text = "Cadastrar";
             this.btnCadastro.UseVisualStyleBackColor = true;
+            this.btnCadastro.Click += new System.EventHandler(this.btnCadastro_Click);
             // 
-            // ltvUsuario
+            // ltvProduto
             // 
-            this.ltvUsuario.HideSelection = false;
-            this.ltvUsuario.Location = new System.Drawing.Point(12, 219);
-            this.ltvUsuario.Name = "ltvUsuario";
-            this.ltvUsuario.Size = new System.Drawing.Size(776, 209);
-            this.ltvUsuario.TabIndex = 26;
-            this.ltvUsuario.UseCompatibleStateImageBehavior = false;
-            this.ltvUsuario.View = System.Windows.Forms.View.Details;
+            this.ltvProduto.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.clhNome,
+            this.clhFornecedor,
+            this.clhCategoria,
+            this.clhUnidade,
+            this.clhQtd});
+            this.ltvProduto.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+            this.ltvProduto.HideSelection = false;
+            this.ltvProduto.Location = new System.Drawing.Point(12, 229);
+            this.ltvProduto.Name = "ltvProduto";
+            this.ltvProduto.Size = new System.Drawing.Size(776, 209);
+            this.ltvProduto.TabIndex = 26;
+            this.ltvProduto.UseCompatibleStateImageBehavior = false;
+            this.ltvProduto.View = System.Windows.Forms.View.Details;
+            this.ltvProduto.SelectedIndexChanged += new System.EventHandler(this.ltvProduto_SelectedIndexChanged);
+            // 
+            // clhNome
+            // 
+            this.clhNome.Text = "Nome";
+            // 
+            // clhFornecedor
+            // 
+            this.clhFornecedor.Text = "Fornecedor";
+            // 
+            // clhCategoria
+            // 
+            this.clhCategoria.Text = "Categoria";
+            // 
+            // clhUnidade
+            // 
+            this.clhUnidade.Text = "Unidade";
+            // 
+            // clhQtd
+            // 
+            this.clhQtd.Text = "Quantidade";
             // 
             // txbNome
             // 
-            this.txbNome.Location = new System.Drawing.Point(12, 38);
+            this.txbNome.Location = new System.Drawing.Point(12, 50);
             this.txbNome.Name = "txbNome";
             this.txbNome.Size = new System.Drawing.Size(450, 20);
             this.txbNome.TabIndex = 25;
@@ -246,41 +239,47 @@
             // lblNome
             // 
             this.lblNome.AutoSize = true;
-            this.lblNome.Location = new System.Drawing.Point(12, 22);
+            this.lblNome.Location = new System.Drawing.Point(12, 34);
             this.lblNome.Name = "lblNome";
-            this.lblNome.Size = new System.Drawing.Size(81, 13);
+            this.lblNome.Size = new System.Drawing.Size(35, 13);
             this.lblNome.TabIndex = 24;
-            this.lblNome.Text = "Nome completo";
+            this.lblNome.Text = "Nome";
+            // 
+            // cmbCategoria
+            // 
+            this.cmbCategoria.FormattingEnabled = true;
+            this.cmbCategoria.Location = new System.Drawing.Point(243, 89);
+            this.cmbCategoria.Name = "cmbCategoria";
+            this.cmbCategoria.Size = new System.Drawing.Size(219, 21);
+            this.cmbCategoria.TabIndex = 46;
+            this.cmbCategoria.SelectedIndexChanged += new System.EventHandler(this.cmbCategoria_SelectedIndexChanged);
             // 
             // TelaCadastroProduto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.cmbCategoria);
             this.Controls.Add(this.btnLimpar);
-            this.Controls.Add(this.lblEmail);
-            this.Controls.Add(this.txbEmail);
-            this.Controls.Add(this.lblSenha);
-            this.Controls.Add(this.txbSenha);
-            this.Controls.Add(this.lblEstado);
-            this.Controls.Add(this.txbEstado);
-            this.Controls.Add(this.lblCidade);
-            this.Controls.Add(this.txbCidade);
-            this.Controls.Add(this.lblCEP);
-            this.Controls.Add(this.txbCEP);
-            this.Controls.Add(this.lblEndereco);
-            this.Controls.Add(this.txbEndereco);
-            this.Controls.Add(this.lblCPF);
-            this.Controls.Add(this.txbCPF);
-            this.Controls.Add(this.lblTelefone);
-            this.Controls.Add(this.txbTelefone);
+            this.Controls.Add(this.lblPreco);
+            this.Controls.Add(this.txbPreco);
+            this.Controls.Add(this.lblUnidade);
+            this.Controls.Add(this.txbUnidade);
+            this.Controls.Add(this.lblCategoria);
+            this.Controls.Add(this.lblFornecedor);
+            this.Controls.Add(this.txbFornecedor);
+            this.Controls.Add(this.lblDescricao);
+            this.Controls.Add(this.txbDescricao);
+            this.Controls.Add(this.lblQtd);
+            this.Controls.Add(this.txbQtd);
             this.Controls.Add(this.btnDeletar);
             this.Controls.Add(this.btnCadastro);
-            this.Controls.Add(this.ltvUsuario);
+            this.Controls.Add(this.ltvProduto);
             this.Controls.Add(this.txbNome);
             this.Controls.Add(this.lblNome);
             this.Controls.Add(this.menuStrip1);
             this.Name = "TelaCadastroProduto";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "TelaCadastroProduto";
             this.Load += new System.EventHandler(this.TelaCadastroProduto_Load);
             this.menuStrip1.ResumeLayout(false);
@@ -295,26 +294,27 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem voltarAoMenuToolStripMenuItem;
         private System.Windows.Forms.Button btnLimpar;
-        private System.Windows.Forms.Label lblEmail;
-        private System.Windows.Forms.TextBox txbEmail;
-        private System.Windows.Forms.Label lblSenha;
-        private System.Windows.Forms.TextBox txbSenha;
-        private System.Windows.Forms.Label lblEstado;
-        private System.Windows.Forms.TextBox txbEstado;
-        private System.Windows.Forms.Label lblCidade;
-        private System.Windows.Forms.TextBox txbCidade;
-        private System.Windows.Forms.Label lblCEP;
-        private System.Windows.Forms.TextBox txbCEP;
-        private System.Windows.Forms.Label lblEndereco;
-        private System.Windows.Forms.TextBox txbEndereco;
-        private System.Windows.Forms.Label lblCPF;
-        private System.Windows.Forms.TextBox txbCPF;
-        private System.Windows.Forms.Label lblTelefone;
-        private System.Windows.Forms.TextBox txbTelefone;
+        private System.Windows.Forms.Label lblPreco;
+        private System.Windows.Forms.TextBox txbPreco;
+        private System.Windows.Forms.Label lblUnidade;
+        private System.Windows.Forms.TextBox txbUnidade;
+        private System.Windows.Forms.Label lblCategoria;
+        private System.Windows.Forms.Label lblFornecedor;
+        private System.Windows.Forms.TextBox txbFornecedor;
+        private System.Windows.Forms.Label lblDescricao;
+        private System.Windows.Forms.TextBox txbDescricao;
+        private System.Windows.Forms.Label lblQtd;
+        private System.Windows.Forms.TextBox txbQtd;
         private System.Windows.Forms.Button btnDeletar;
         private System.Windows.Forms.Button btnCadastro;
-        private System.Windows.Forms.ListView ltvUsuario;
+        private System.Windows.Forms.ListView ltvProduto;
         private System.Windows.Forms.TextBox txbNome;
         private System.Windows.Forms.Label lblNome;
+        private System.Windows.Forms.ColumnHeader clhNome;
+        private System.Windows.Forms.ColumnHeader clhFornecedor;
+        private System.Windows.Forms.ColumnHeader clhCategoria;
+        private System.Windows.Forms.ColumnHeader clhUnidade;
+        private System.Windows.Forms.ColumnHeader clhQtd;
+        private System.Windows.Forms.ComboBox cmbCategoria;
     }
 }

@@ -25,19 +25,8 @@ namespace Estoque
 
         private void cadastroUsuárioToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            //abrir tela de cadastro de usuário
-            CadastroUsuario telaCadastroUsuario = new CadastroUsuario();
+            var telaCadastroUsuario = new CadastroUsuario();
             telaCadastroUsuario.ShowDialog();
-        }
-
-        private void cadastroFornecedorToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cadastroCategoriaToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void produtosToolStripMenuItem_Click(object sender, EventArgs e)

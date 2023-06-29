@@ -12,70 +12,109 @@ namespace Estoque
         private Conexao Con { get; set; }
         private SqlCommand Cmd { get; set; }
 
+        public ProdutoDAO()
+        {
+            Con = new Conexao();
+            Cmd = new SqlCommand();
+            Cmd.Connection = Con.ReturnConnection(); // atribui a conexão ao comando SqlCommand
+        }
         public void Inserir(Produto produto)
         {
-            Conexao conexao = new Conexao();
-            string sql = "INSERT INTO Produto (Nome, Preco, Quantidade, Descricao) VALUES (@Nome, @Preco, @FornecedorID, @CategoriaID, @Quantidade, @Descricao)";
-            SqlCommand command = new SqlCommand(sql, conexao.ReturnConnection());
-            command.Parameters.AddWithValue("@Nome", produto.Nome);
-            command.Parameters.AddWithValue("@Preco", produto.Preco);
-            command.Parameters.AddWithValue("@Quantidade", produto.Quantidade);
-            command.Parameters.AddWithValue("@Descricao", produto.Descricao);
-            command.ExecuteNonQuery();
-            conexao.CloseConnection();
+            using (SqlConnection connection = Con.ReturnConnection())
+            {
+                connection.Open();
+                string sql = "INSERT INTO Produto VALUES (@ID, @Nome, @Fornecedor, @Categoria, @Unidade, @Preco, @Quantidade, @Descricao)";
+                SqlCommand command = new SqlCommand(sql, connection);
+                command.Parameters.AddWithValue("@ID", produto.ID);
+                command.Parameters.AddWithValue("@Nome", produto.Nome);
+                command.Parameters.AddWithValue("@Fornecedor", produto.Fornecedor);
+                command.Parameters.AddWithValue("@Categoria", produto.Categoria);
+                command.Parameters.AddWithValue("@Unidade", produto.Unidade);
+                command.Parameters.AddWithValue("@Preco", produto.Preco);
+                command.Parameters.AddWithValue("@Quantidade", produto.Quantidade);
+                command.Parameters.AddWithValue("@Descricao", produto.Descricao);
+                command.ExecuteNonQuery();
+            }
         }
+
 
         public void Atualizar(Produto produto)
         {
-            Conexao conexao = new Conexao();
-            string sql = "UPDATE Produto SET Nome = @Nome, Preco = @Preco, Quantidade = @Quantidade, Descricao = @Descricao WHERE ID = @ID";
-            SqlCommand command = new SqlCommand(sql, conexao.ReturnConnection());
-            command.Parameters.AddWithValue("@Nome", produto.Nome);
-            command.Parameters.AddWithValue("@Preco", produto.Preco);
-            command.Parameters.AddWithValue("@Quantidade", produto.Quantidade);
-            command.Parameters.AddWithValue("@Descricao", produto.Descricao);
-            command.ExecuteNonQuery();
-            conexao.CloseConnection();
+            using (SqlConnection connection = Con.ReturnConnection())
+            {
+                connection.Open();
+                string sql = "UPDATE Produto SET Nome = @Nome, Fornecedor = @Fornecedor, Categoria = @Categoria, Preco = @Preco, Quantidade = @Quantidade, Descricao = @Descricao WHERE ID = @ID";
+                SqlCommand command = new SqlCommand(sql, connection);
+                command.Parameters.AddWithValue("@Nome", produto.Nome);
+                command.Parameters.AddWithValue("@Fornecedor", produto.Fornecedor);
+                command.Parameters.AddWithValue("@Categoria", produto.Categoria);
+                command.Parameters.AddWithValue("@Preco", produto.Preco);
+                command.Parameters.AddWithValue("@Quantidade", produto.Quantidade);
+                command.Parameters.AddWithValue("@Descricao", produto.Descricao);
+                command.ExecuteNonQuery();
+            }
         }
+
 
         public void Deletar(int id)
         {
-            Conexao conexao = new Conexao();
-            string sql = "DELETE FROM Produto WHERE ID = @ID";
-            SqlCommand command = new SqlCommand(sql, conexao.ReturnConnection());
-            command.Parameters.AddWithValue("@ID", id);
-            command.ExecuteNonQuery();
-            conexao.CloseConnection();
+            using (SqlConnection connection = Con.ReturnConnection())
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand();
+                command.Connection = connection;
+                command.CommandText = @"DELETE FROM Produto WHERE ID = @id";
+                command.Parameters.AddWithValue("@id", id);
+                command.ExecuteNonQuery();
+            }
+        }
+
+
+        public SqlCommand GetCmd()
+        {
+            return Cmd;
         }
 
         public List<Produto> ListarProdutos()
         {
-            Cmd.Connection = Con.ReturnConnection();
-            Cmd.CommandText = @"SELECT * FROM Produto";
+            using (SqlConnection connection = Con.ReturnConnection())
+            {
+                connection.Open(); // Abre a conexão com o banco de dados
 
-            List<Produto> produtos = new List<Produto>();
-            try
-            {
-                SqlDataReader rd = Cmd.ExecuteReader();
-                while (rd.Read())
+                Cmd.Connection = connection;
+                Cmd.CommandText = @"SELECT * FROM Produto";
+
+                List<Produto> produtos = new List<Produto>();
+                try
                 {
-                    int id = (int)rd["ID"];
-                    string nome = (string)rd["Nome"];
-                    decimal preco = (decimal)rd["Preco"];
-                    int quantidade = (int)rd["Quantidade"];
-                    string descricao = (string)rd["Descricao"];
-                    produtos.Add(new Produto(id, nome, preco, quantidade, descricao));
+                    SqlDataReader rd = Cmd.ExecuteReader();
+                    while (rd.Read())
+                    {
+                        int id = (int)rd["ID"];
+                        string nome = (string)rd["Nome"];
+                        string fornecedor = (string)rd["Fornecedor"];
+                        string categoria = (string)rd["Categoria"];
+                        string unidade = (string)rd["Unidade"];
+                        decimal preco = (decimal)rd["Preco"];
+                        int quantidade = (int)rd["Quantidade"];
+                        string descricao = (string)rd["Descricao"];
+                        produtos.Add(new Produto(id, nome, fornecedor, categoria, unidade, preco, quantidade, descricao));
+                    }
+                    return produtos;
                 }
-                return produtos;
-            }
-            catch
-            {
-                throw new Exception("Erro ao listar produtos");
-            }
-            finally
-            {
-                Con.CloseConnection();
+                catch (Exception ex)
+                {
+                    // Trate a exceção de alguma forma apropriada, como registrar o erro ou retornar uma lista vazia
+                    Console.WriteLine("Erro ao listar produtos: " + ex.Message);
+                    return new List<Produto>();
+                }
+                finally
+                {
+                    connection.Close(); // Fecha a conexão com o banco de dados
+                }
             }
         }
+
+
     }
 }

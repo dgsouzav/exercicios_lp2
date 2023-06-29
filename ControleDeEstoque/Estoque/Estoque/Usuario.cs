@@ -21,10 +21,6 @@ namespace Estoque
         private string email;
         private string senha;
 
-        public Usuario(int id)
-        {
-            this.id = id;
-        }
 
         public Usuario(string email, string senha)
         {
