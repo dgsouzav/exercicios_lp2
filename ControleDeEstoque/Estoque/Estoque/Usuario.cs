@@ -21,11 +21,17 @@ namespace Estoque
         private string email;
         private string senha;
 
-        public Usuario(int id, string nome, string email)
+        public Usuario(int ID, string nome, string cpf, string endereco, string cep, string cidade, string estado, string telefone, string email)
         {
-            this.id=id;
-            this.nome=nome;
-            this.email=email;
+            this.id = id;
+            this.nome = nome;
+            this.cpf = cpf;
+            this.endereco = endereco;
+            this.cep = cep;
+            this.cidade = cidade;
+            this.estado = estado;
+            this.telefone = telefone;
+            this.email = email;
         }
 
         public Usuario(string nome, string cpf, string endereco, string cep, string cidade, string estado, string telefone, string email, string senha)
