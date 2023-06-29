@@ -21,21 +21,29 @@ namespace Estoque
         private string email;
         private string senha;
 
-        public Usuario(int ID, string nome, string cpf, string endereco, string cep, string cidade, string estado, string telefone, string email)
+        public Usuario(int id, string nome, string email)
         {
-            this.id = id;
-            this.nome = nome;
-            this.cpf = cpf;
-            this.endereco = endereco;
-            this.cep = cep;
-            this.cidade = cidade;
-            this.estado = estado;
-            this.telefone = telefone;
-            this.email = email;
+            this.id=id;
+            this.nome=nome;
+            this.email=email;
         }
 
-        public Usuario(string nome, string cpf, string endereco, string cep, string cidade, string estado, string telefone, string email, string senha)
+        public Usuario(string nome, string senha, string email, string telefone, string cpf, string endereco, string cep, string cidade, string estado)
         {
+            this.nome=nome;
+            this.senha=senha;
+            this.email=email;
+            this.telefone=telefone;
+            this.cpf=cpf;
+            this.endereco=endereco;
+            this.cep=cep;
+            this.cidade=cidade;
+            this.estado=estado;
+        }
+
+        public Usuario(int ID, string nome, string cpf, string endereco, string cep, string cidade, string estado, string telefone, string email, string senha)
+        {
+            ID = id;
             Nome = nome;
             CPF = cpf;
             Endereco = endereco;
@@ -46,10 +54,7 @@ namespace Estoque
             Email = email;
             Senha = senha;
         }
-        public Usuario(int ID, string nome, string cpf, string endereco, string cep, string cidade, string estado, string telefone, string email)
-        {
-            ID = id;
-        }
+        
         public int ID
         {
             get { return id; }
@@ -58,17 +63,7 @@ namespace Estoque
         public string Nome
         {
             get { return nome; }
-            set
-            {
-                if (value.Length <= 50)
-                {
-                    nome = value;
-                }
-                else
-                {
-                    throw new Exception("O nome deve ter no máximo 50 caracteres.");
-                }
-            }
+            set { nome = value; }
         }
         public string CPF
         {
@@ -103,32 +98,12 @@ namespace Estoque
         public string CEP
         {
             get { return cep; }
-            set
-            {
-                if (value.Length <= 8)
-                {
-                    cep = value;
-                }
-                else
-                {
-                    throw new Exception("O CEP deve ter no máximo 8 caracteres.");
-                }
-            }
+            set { cep = value; }
         }
         public string Cidade
         {
             get { return cidade; }
-            set
-            {
-                if (value.Length <= 20)
-                {
-                    cidade = value;
-                }
-                else
-                {
-                    throw new Exception("A cidade deve ter no máximo 20 caracteres.");
-                }
-            }
+            set { cidade = value; }
         }
         public string Estado
         {

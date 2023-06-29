@@ -46,18 +46,32 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CadastroDeProduto.cs">
+    <Compile Include="TelaCadastroCategoria.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CadastroDeProduto.Designer.cs">
-      <DependentUpon>CadastroDeProduto.cs</DependentUpon>
+    <Compile Include="TelaCadastroCategoria.Designer.cs">
+      <DependentUpon>TelaCadastroCategoria.cs</DependentUpon>
     </Compile>
-    <Compile Include="CadastroDeUsuario.cs">
+    <Compile Include="TelaCadastroFornecedor.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CadastroDeUsuario.Designer.cs">
-      <DependentUpon>CadastroDeUsuario.cs</DependentUpon>
+    <Compile Include="TelaCadastroFornecedor.Designer.cs">
+      <DependentUpon>TelaCadastroFornecedor.cs</DependentUpon>
     </Compile>
+    <Compile Include="TelaCadastroProduto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TelaCadastroProduto.Designer.cs">
+      <DependentUpon>TelaCadastroProduto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TelaCadastroUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TelaCadastroUsuario.Designer.cs">
+      <DependentUpon>TelaCadastroUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Categoria.cs" />
+    <Compile Include="CategoriaDAO.cs" />
     <Compile Include="Conexao.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -65,10 +79,18 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Fornecedor.cs" />
+    <Compile Include="FornecedorDAO.cs" />
     <Compile Include="Produto.cs" />
     <Compile Include="ProdutoDAO.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TelaPrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TelaPrincipal.Designer.cs">
+      <DependentUpon>TelaPrincipal.cs</DependentUpon>
+    </Compile>
     <Compile Include="Usuario.cs" />
     <Compile Include="UsuarioDAO.cs" />
     <EmbeddedResource Include="Form1.resx">
@@ -83,6 +105,21 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="TelaCadastroCategoria.resx">
+      <DependentUpon>TelaCadastroCategoria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TelaCadastroFornecedor.resx">
+      <DependentUpon>TelaCadastroFornecedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TelaCadastroProduto.resx">
+      <DependentUpon>TelaCadastroProduto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TelaCadastroUsuario.resx">
+      <DependentUpon>TelaCadastroUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TelaPrincipal.resx">
+      <DependentUpon>TelaPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

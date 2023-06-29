@@ -1,127 +1,85 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Estoque
 {
     internal class Produto
     {
-        internal class Fornecedor
-        {
-            public int ID 
-            public string Nome 
-            public string Endereco 
-            public string CNPJ 
-            public string Telefone 
-            public string Email 
+        public int ID;
+        public string nome;
+        public decimal preco;
+        public int fornecedorID;
+        public int categoriaID;
+        public int qtd;
+        public string descricao;
 
-            public Fornecedor(int id, string nome, string endereco, string cnpj, string telefone, string email)
-            {
-                ID = id;
-                Nome = nome;
-                Endereco = endereco;
-                CNPJ = cnpj;
-                Telefone = telefone;
-                Email = email;
-            }
+        public Produto(int ID, string nome, decimal preco, int fornecedorID, int categoriaID, int quantidade, string descricao)
+        {
+            ID = id;
+            Nome = nome;
+            Preco = preco;
+            FornecedorID = fornecedorID;
+            CategoriaID = categoriaID;
+            Quantidade = quantidade;
+            Descricao = descricao;
         }
 
-        internal class Categoria
+        public int id
         {
-            public int ID 
-            public string Nome 
-
-            public Categoria(int id, string nome)
+            get { return id; }
+            set { id = value; }
+        }
+        public string Nome
+        {
+            get { return nome; }
+            set
             {
-                ID = id;
-                Nome = nome;
+                if (value.Length > 0)
+                    nome = value;
+                else
+                    throw new Exception("Nome não pode ser vazio");
             }
         }
-
-        internal class Produto
+        public decimal Preco
         {
-            public int ID 
-            public string Nome 
-            public decimal Preco 
-            public int FornecedorID 
-            public int CategoriaID 
-            public int Quantidade 
-            public string Descricao 
-
-            public Produto(string nome, decimal preco, int fornecedorID, int categoriaID, int quantidade, string descricao)
+            get { return preco; }
+            set
             {
-                Nome = nome;
-                Preco = preco;
-                FornecedorID = fornecedorID;
-                CategoriaID = categoriaID;
-                Quantidade = quantidade;
-                Descricao = descricao;
+                if (value > 0)
+                    preco = value;
+                else
+                    throw new Exception("Preço não pode ser negativo");
             }
-
-            public Produto(int ID, string nome, decimal preco, int fornecedorID, int categoriaID, int quantidade, string descricao)
+        }
+        public int FornecedorID
+        {
+            get { return fornecedorID; }
+            set { fornecedorID = value; }
+        }
+        public int CategoriaID
+        {
+            get { return categoriaID; }
+            set { categoriaID = value; }
+        }
+        public int Quantidade
+        {
+            get { return qtd; }
+            set
             {
-                ID = id;
+                if (value > 0)
+                    qtd = value;
+                else
+                    throw new Exception("Quantidade não pode ser negativa");
             }
-            public int ID
+        }
+        public string Descricao
+        {
+            get { return descricao; }
+            set
             {
-                get { return id; }
-                set { id = value; }
-            }
-            public string Nome
-            {
-                get { return nome; }
-                set
-                {
-                    if(value.Length > 0)
-                        nome = value;
-                    else
-                        throw new Exception("Nome não pode ser vazio")
-                }
-            }
-            public decimal Preco
-            {
-                get { return preco; }
-                set
-                {
-                    if(value > 0)
-                        preco = value;
-                    else
-                        throw new Exception("Preço não pode ser negativo")
-                }
-            }
-            public int FornecedorID
-            {
-                get { return fornecedorID; }
-                set { fornecedorID = value; }
-            }
-            public int CategoriaID
-            {
-                get { return categoriaID; }
-                set { categoriaID = value; }
-            }
-            public int Quantidade
-            {
-                get { return quantidade; }
-                set
-                {
-                    if(value > 0)
-                        quantidade = value;
-                    else
-                        throw new Exception("Quantidade não pode ser negativa")
-                }
-            }
-            public string Descricao
-            {
-                get { return descricao; }
-                set
-                {
-                    if(value.Length > 0)
-                        descricao = value;
-                    else
-                        throw new Exception("Descrição não pode ser vazia")
-                }
+                if (value.Length > 0)
+                    descricao = value;
+                else
+                    throw new Exception("Descrição não pode ser vazia");
             }
         }
     }
