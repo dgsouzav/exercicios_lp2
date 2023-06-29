@@ -32,10 +32,8 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.sAIRToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cadastroUsuárioToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.cadastroFornecedorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cadastroCategoriaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.produtosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.produtosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -44,12 +42,10 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.sAIRToolStripMenuItem,
             this.cadastroUsuárioToolStripMenuItem1,
-            this.cadastroFornecedorToolStripMenuItem,
-            this.cadastroCategoriaToolStripMenuItem,
             this.produtosToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(405, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -67,19 +63,10 @@
             this.cadastroUsuárioToolStripMenuItem1.Text = "Usuários";
             this.cadastroUsuárioToolStripMenuItem1.Click += new System.EventHandler(this.cadastroUsuárioToolStripMenuItem1_Click);
             // 
-            // cadastroFornecedorToolStripMenuItem
+            // contextMenuStrip1
             // 
-            this.cadastroFornecedorToolStripMenuItem.Name = "cadastroFornecedorToolStripMenuItem";
-            this.cadastroFornecedorToolStripMenuItem.Size = new System.Drawing.Size(90, 20);
-            this.cadastroFornecedorToolStripMenuItem.Text = "Fornecedores";
-            this.cadastroFornecedorToolStripMenuItem.Click += new System.EventHandler(this.cadastroFornecedorToolStripMenuItem_Click);
-            // 
-            // cadastroCategoriaToolStripMenuItem
-            // 
-            this.cadastroCategoriaToolStripMenuItem.Name = "cadastroCategoriaToolStripMenuItem";
-            this.cadastroCategoriaToolStripMenuItem.Size = new System.Drawing.Size(75, 20);
-            this.cadastroCategoriaToolStripMenuItem.Text = "Categorias";
-            this.cadastroCategoriaToolStripMenuItem.Click += new System.EventHandler(this.cadastroCategoriaToolStripMenuItem_Click);
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
             // produtosToolStripMenuItem
             // 
@@ -88,19 +75,15 @@
             this.produtosToolStripMenuItem.Text = "Produtos";
             this.produtosToolStripMenuItem.Click += new System.EventHandler(this.produtosToolStripMenuItem_Click);
             // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
-            // 
             // TelaPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(405, 275);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "TelaPrincipal";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "TelaPrincipal";
             this.Load += new System.EventHandler(this.TelaPrincipal_Load);
             this.menuStrip1.ResumeLayout(false);
@@ -116,8 +99,6 @@
         private System.Windows.Forms.ToolStripMenuItem sAIRToolStripMenuItem;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem cadastroUsuárioToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem cadastroFornecedorToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem cadastroCategoriaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem produtosToolStripMenuItem;
     }
 }

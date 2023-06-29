@@ -52,11 +52,11 @@
     <Compile Include="TelaCadastroProduto.Designer.cs">
       <DependentUpon>TelaCadastroProduto.cs</DependentUpon>
     </Compile>
-    <Compile Include="TelaCadastroUsuario.cs">
+    <Compile Include="CadastroUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TelaCadastroUsuario.Designer.cs">
-      <DependentUpon>TelaCadastroUsuario.cs</DependentUpon>
+    <Compile Include="CadastroUsuario.Designer.cs">
+      <DependentUpon>CadastroUsuario.cs</DependentUpon>
     </Compile>
     <Compile Include="Conexao.cs" />
     <Compile Include="Form1.cs">
@@ -92,8 +92,8 @@
     <EmbeddedResource Include="TelaCadastroProduto.resx">
       <DependentUpon>TelaCadastroProduto.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TelaCadastroUsuario.resx">
-      <DependentUpon>TelaCadastroUsuario.cs</DependentUpon>
+    <EmbeddedResource Include="CadastroUsuario.resx">
+      <DependentUpon>CadastroUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TelaPrincipal.resx">
       <DependentUpon>TelaPrincipal.cs</DependentUpon>
