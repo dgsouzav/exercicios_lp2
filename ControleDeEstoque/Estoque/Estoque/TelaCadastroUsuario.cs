@@ -41,50 +41,6 @@ namespace Estoque
                 }
             }
         }
-        private void btnMostrar_Click(object sender, EventArgs e)
-        {
-            string nome = txbNome.Text;
-            string senha = txbSenha.Text;
-            string email = txbEmail.Text;
-            string telefone = txbTelefone.Text;
-            string cpf = txbCPF.Text;
-            string endereco = txbEndereco.Text;
-            string cep = txbCEP.Text;
-            string cidade = txbCidade.Text;
-            string estado = txbEstado.Text;
-
-            Usuario usuario;
-
-            try
-            {
-                UsuarioDAO usuarioDAO = new UsuarioDAO();
-                if (btnMostrar.Text == "Cadastrar")
-                {
-                    usuario = new Usuario(nome, senha, email, telefone, cpf, endereco, cep, cidade, estado);
-                    usuarioDAO.Inserir(usuario);
-                }
-                else if (btnMostrar.Text == "Atualizar") // Adicione essa verificação para lidar com o caso de atualização
-                {
-                    usuario = new Usuario(id, nome, cpf, endereco, cep, cidade, estado, telefone, email, senha);
-                    usuarioDAO.Atualizar(usuario);
-                }
-                else
-                {
-                    // Caso contrário, ocorreu algum erro
-                    throw new Exception("O nome do botão é desconhecido.");
-                }
-
-                UpdateListView();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            ClearFields();
-            UpdateListView();
-        }
 
 
         private void label1_Click(object sender, EventArgs e)
@@ -109,7 +65,7 @@ namespace Estoque
             txbCidade.Clear();
             txbEstado.Clear();
             btnDeletar.Visible = false;
-            btnMostrar.Text = "Cadastrar";
+
         }
 
 
@@ -155,7 +111,6 @@ namespace Estoque
             txbCidade.Text = ltvUsuario.Items[index].SubItems[8].Text;
             txbEstado.Text = ltvUsuario.Items[index].SubItems[9].Text;
 
-            btnMostrar.Text = "Atualizar";
             btnDeletar.Visible = true;
         }
 
