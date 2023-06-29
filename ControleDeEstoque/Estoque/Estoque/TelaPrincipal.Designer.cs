@@ -31,11 +31,11 @@
             this.components = new System.ComponentModel.Container();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.sAIRToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.cadastroUsuárioToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.cadastroFornecedorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cadastroCategoriaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.produtosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -58,35 +58,40 @@
             this.sAIRToolStripMenuItem.Name = "sAIRToolStripMenuItem";
             this.sAIRToolStripMenuItem.Size = new System.Drawing.Size(38, 20);
             this.sAIRToolStripMenuItem.Text = "Sair";
-            // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            this.sAIRToolStripMenuItem.Click += new System.EventHandler(this.sAIRToolStripMenuItem_Click);
             // 
             // cadastroUsuárioToolStripMenuItem1
             // 
             this.cadastroUsuárioToolStripMenuItem1.Name = "cadastroUsuárioToolStripMenuItem1";
             this.cadastroUsuárioToolStripMenuItem1.Size = new System.Drawing.Size(64, 20);
             this.cadastroUsuárioToolStripMenuItem1.Text = "Usuários";
+            this.cadastroUsuárioToolStripMenuItem1.Click += new System.EventHandler(this.cadastroUsuárioToolStripMenuItem1_Click);
             // 
             // cadastroFornecedorToolStripMenuItem
             // 
             this.cadastroFornecedorToolStripMenuItem.Name = "cadastroFornecedorToolStripMenuItem";
             this.cadastroFornecedorToolStripMenuItem.Size = new System.Drawing.Size(90, 20);
             this.cadastroFornecedorToolStripMenuItem.Text = "Fornecedores";
+            this.cadastroFornecedorToolStripMenuItem.Click += new System.EventHandler(this.cadastroFornecedorToolStripMenuItem_Click);
             // 
             // cadastroCategoriaToolStripMenuItem
             // 
             this.cadastroCategoriaToolStripMenuItem.Name = "cadastroCategoriaToolStripMenuItem";
             this.cadastroCategoriaToolStripMenuItem.Size = new System.Drawing.Size(75, 20);
             this.cadastroCategoriaToolStripMenuItem.Text = "Categorias";
+            this.cadastroCategoriaToolStripMenuItem.Click += new System.EventHandler(this.cadastroCategoriaToolStripMenuItem_Click);
             // 
             // produtosToolStripMenuItem
             // 
             this.produtosToolStripMenuItem.Name = "produtosToolStripMenuItem";
             this.produtosToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
             this.produtosToolStripMenuItem.Text = "Produtos";
+            this.produtosToolStripMenuItem.Click += new System.EventHandler(this.produtosToolStripMenuItem_Click);
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
             // TelaPrincipal
             // 
@@ -97,6 +102,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "TelaPrincipal";
             this.Text = "TelaPrincipal";
+            this.Load += new System.EventHandler(this.TelaPrincipal_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);

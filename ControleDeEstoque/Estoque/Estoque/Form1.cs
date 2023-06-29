@@ -39,10 +39,17 @@ namespace Estoque
 
         private void btnEntrar_Click(object sender, EventArgs e)
         {
-            UsuarioDAO usuaurioLogin = new UsuarioDAO();
-
-            
-
+            UsuarioDAO usuarioLogin = new UsuarioDAO();
+            Usuario usuario = new Usuario(txtEmail.Text, txtSenha.Text);
+            if (usuarioLogin.Login(usuario))
+            {
+                MessageBox.Show("Login realizado com sucesso!");
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Email ou senha incorretos!");
+            }
         }
     }
 }

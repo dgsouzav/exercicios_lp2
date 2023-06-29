@@ -15,12 +15,10 @@ namespace Estoque
         public void Inserir(Produto produto)
         {
             Conexao conexao = new Conexao();
-            string sql = "INSERT INTO Produto (Nome, Preco, FornecedorID, CategoriaID, Quantidade, Descricao) VALUES (@Nome, @Preco, @FornecedorID, @CategoriaID, @Quantidade, @Descricao)";
+            string sql = "INSERT INTO Produto (Nome, Preco, Quantidade, Descricao) VALUES (@Nome, @Preco, @FornecedorID, @CategoriaID, @Quantidade, @Descricao)";
             SqlCommand command = new SqlCommand(sql, conexao.ReturnConnection());
             command.Parameters.AddWithValue("@Nome", produto.Nome);
             command.Parameters.AddWithValue("@Preco", produto.Preco);
-            command.Parameters.AddWithValue("@FornecedorID", produto.FornecedorID);
-            command.Parameters.AddWithValue("@CategoriaID", produto.CategoriaID);
             command.Parameters.AddWithValue("@Quantidade", produto.Quantidade);
             command.Parameters.AddWithValue("@Descricao", produto.Descricao);
             command.ExecuteNonQuery();
@@ -30,12 +28,10 @@ namespace Estoque
         public void Atualizar(Produto produto)
         {
             Conexao conexao = new Conexao();
-            string sql = "UPDATE Produto SET Nome = @Nome, Preco = @Preco, FornecedorID = @FornecedorID, CategoriaID = @CategoriaID, Quantidade = @Quantidade, Descricao = @Descricao WHERE ID = @ID";
+            string sql = "UPDATE Produto SET Nome = @Nome, Preco = @Preco, Quantidade = @Quantidade, Descricao = @Descricao WHERE ID = @ID";
             SqlCommand command = new SqlCommand(sql, conexao.ReturnConnection());
             command.Parameters.AddWithValue("@Nome", produto.Nome);
             command.Parameters.AddWithValue("@Preco", produto.Preco);
-            command.Parameters.AddWithValue("@FornecedorID", produto.FornecedorID);
-            command.Parameters.AddWithValue("@CategoriaID", produto.CategoriaID);
             command.Parameters.AddWithValue("@Quantidade", produto.Quantidade);
             command.Parameters.AddWithValue("@Descricao", produto.Descricao);
             command.ExecuteNonQuery();
@@ -66,11 +62,9 @@ namespace Estoque
                     int id = (int)rd["ID"];
                     string nome = (string)rd["Nome"];
                     decimal preco = (decimal)rd["Preco"];
-                    int fornecedorID = (int)rd["FornecedorID"];
-                    int categoriaID = (int)rd["CategoriaID"];
                     int quantidade = (int)rd["Quantidade"];
                     string descricao = (string)rd["Descricao"];
-                    produtos.Add(new Produto(id, nome, preco, fornecedorID, categoriaID, quantidade, descricao));
+                    produtos.Add(new Produto(id, nome, preco, quantidade, descricao));
                 }
                 return produtos;
             }

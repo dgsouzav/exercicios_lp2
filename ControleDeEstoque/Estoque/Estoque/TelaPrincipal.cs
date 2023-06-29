@@ -16,5 +16,36 @@ namespace Estoque
         {
             InitializeComponent();
         }
+
+        private void TelaPrincipal_Load(object sender, EventArgs e)
+        {
+
+        }
+        
+
+        private void cadastroUsuárioToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cadastroFornecedorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cadastroCategoriaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void produtosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void sAIRToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

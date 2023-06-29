@@ -61,8 +61,15 @@ namespace Estoque
                     int id = (int)rd["id"];
                     string nome = (string)rd["Nome"];
                     string email = (string)rd["Email"];
+                    string senha = (string)rd["Senha"];
+                    string cpf = (string)rd["CPF"];
+                    string endereco = (string)rd["Endereco"];
+                    string cep = (string)rd["CEP"];
+                    string cidade = (string)rd["Cidade"];
+                    string estado = (string)rd["Estado"];
+                    string telefone = (string)rd["Telefone"];
 
-                    Usuario usuario = new Usuario(id, nome, email);
+                    Usuario usuario = new Usuario(id, nome, cpf, endereco, cep, cidade, estado, telefone, email, senha);
                     usuarios.Add(usuario);
                 }
                 rd.Close();
@@ -108,12 +115,12 @@ namespace Estoque
                 Con.CloseConnection();
             }
         }
-        public void Deletar(Usuario usuario)
+        public void Deletar(int id)
         {
             Cmd.Connection = Con.ReturnConnection();
-            Cmd.CommandText = @"DELETE FROM Usuario WHERE Cpf = @cpf";
-            Cmd.Parameters.AddWithValue("@cpf", usuario.CPF);
-
+            Cmd.CommandText = @"DELETE FROM Usuario WHERE ID = @id";
+            Cmd.Parameters.AddWithValue("@id", id);
+            
             try
             {
                 Cmd.ExecuteNonQuery();
@@ -127,6 +134,36 @@ namespace Estoque
                 Con.CloseConnection();
             }
         }
-        
+
+        internal bool Login(Usuario usuario)
+        {
+            Cmd.Connection = Con.ReturnConnection();
+            Cmd.CommandText = @"SELECT * FROM Usuario WHERE Email = @email";
+            Cmd.Parameters.AddWithValue("@email", usuario.Email);
+                
+            try
+            {
+                SqlDataReader rd = Cmd.ExecuteReader();
+
+                if (rd.Read())
+                {
+                    string senha = (string)rd["Senha"];
+                    if (senha.Equals(usuario.Senha))
+                    {
+                        return true;
+                    }
+                }
+                rd.Close();
+            }
+            catch (SqlException e)
+            {
+                throw new Exception("Erro ao fazer login: " + e.Message);
+            }
+            finally
+            {
+                Con.CloseConnection();
+            }
+            return false;   
+        }
     }
 }

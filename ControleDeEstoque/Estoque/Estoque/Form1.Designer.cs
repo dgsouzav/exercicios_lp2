@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.FormularioDeLogin = new System.Windows.Forms.GroupBox();
-            this.lblLogin = new System.Windows.Forms.Label();
-            this.lblSenha = new System.Windows.Forms.Label();
-            this.btnEntrar = new System.Windows.Forms.Button();
-            this.txtUsuario = new System.Windows.Forms.TextBox();
-            this.txtSenha = new System.Windows.Forms.TextBox();
             this.btnCancelar = new System.Windows.Forms.Button();
+            this.txtSenha = new System.Windows.Forms.TextBox();
+            this.txtEmail = new System.Windows.Forms.TextBox();
+            this.btnEntrar = new System.Windows.Forms.Button();
+            this.lblSenha = new System.Windows.Forms.Label();
+            this.lblLogin = new System.Windows.Forms.Label();
             this.FormularioDeLogin.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -42,7 +42,7 @@
             // 
             this.FormularioDeLogin.Controls.Add(this.btnCancelar);
             this.FormularioDeLogin.Controls.Add(this.txtSenha);
-            this.FormularioDeLogin.Controls.Add(this.txtUsuario);
+            this.FormularioDeLogin.Controls.Add(this.txtEmail);
             this.FormularioDeLogin.Controls.Add(this.btnEntrar);
             this.FormularioDeLogin.Controls.Add(this.lblSenha);
             this.FormularioDeLogin.Controls.Add(this.lblLogin);
@@ -54,24 +54,30 @@
             this.FormularioDeLogin.Text = "Formulário de Login";
             this.FormularioDeLogin.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
-            // lblLogin
+            // btnCancelar
             // 
-            this.lblLogin.AutoSize = true;
-            this.lblLogin.Location = new System.Drawing.Point(6, 29);
-            this.lblLogin.Name = "lblLogin";
-            this.lblLogin.Size = new System.Drawing.Size(43, 13);
-            this.lblLogin.TabIndex = 0;
-            this.lblLogin.Text = "Usuário";
+            this.btnCancelar.Location = new System.Drawing.Point(150, 110);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(89, 22);
+            this.btnCancelar.TabIndex = 5;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
-            // lblSenha
+            // txtSenha
             // 
-            this.lblSenha.AutoSize = true;
-            this.lblSenha.Location = new System.Drawing.Point(6, 68);
-            this.lblSenha.Name = "lblSenha";
-            this.lblSenha.Size = new System.Drawing.Size(38, 13);
-            this.lblSenha.TabIndex = 1;
-            this.lblSenha.Text = "Senha";
-            this.lblSenha.Click += new System.EventHandler(this.label2_Click);
+            this.txtSenha.Location = new System.Drawing.Point(6, 84);
+            this.txtSenha.Name = "txtSenha";
+            this.txtSenha.Size = new System.Drawing.Size(328, 20);
+            this.txtSenha.TabIndex = 4;
+            this.txtSenha.UseSystemPasswordChar = true;
+            // 
+            // txtEmail
+            // 
+            this.txtEmail.Location = new System.Drawing.Point(6, 45);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(328, 20);
+            this.txtEmail.TabIndex = 3;
             // 
             // btnEntrar
             // 
@@ -83,30 +89,24 @@
             this.btnEntrar.UseVisualStyleBackColor = true;
             this.btnEntrar.Click += new System.EventHandler(this.btnEntrar_Click);
             // 
-            // txtUsuario
+            // lblSenha
             // 
-            this.txtUsuario.Location = new System.Drawing.Point(6, 45);
-            this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.Size = new System.Drawing.Size(328, 20);
-            this.txtUsuario.TabIndex = 3;
+            this.lblSenha.AutoSize = true;
+            this.lblSenha.Location = new System.Drawing.Point(6, 68);
+            this.lblSenha.Name = "lblSenha";
+            this.lblSenha.Size = new System.Drawing.Size(38, 13);
+            this.lblSenha.TabIndex = 1;
+            this.lblSenha.Text = "Senha";
+            this.lblSenha.Click += new System.EventHandler(this.label2_Click);
             // 
-            // txtSenha
+            // lblLogin
             // 
-            this.txtSenha.Location = new System.Drawing.Point(6, 84);
-            this.txtSenha.Name = "txtSenha";
-            this.txtSenha.Size = new System.Drawing.Size(328, 20);
-            this.txtSenha.TabIndex = 4;
-            this.txtSenha.UseSystemPasswordChar = true;
-            // 
-            // btnCancelar
-            // 
-            this.btnCancelar.Location = new System.Drawing.Point(150, 110);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(89, 22);
-            this.btnCancelar.TabIndex = 5;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = true;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            this.lblLogin.AutoSize = true;
+            this.lblLogin.Location = new System.Drawing.Point(6, 29);
+            this.lblLogin.Name = "lblLogin";
+            this.lblLogin.Size = new System.Drawing.Size(43, 13);
+            this.lblLogin.TabIndex = 0;
+            this.lblLogin.Text = "Usuário";
             // 
             // Form1
             // 
@@ -128,7 +128,7 @@
 
         private System.Windows.Forms.GroupBox FormularioDeLogin;
         private System.Windows.Forms.TextBox txtSenha;
-        private System.Windows.Forms.TextBox txtUsuario;
+        private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.Button btnEntrar;
         private System.Windows.Forms.Label lblSenha;
         private System.Windows.Forms.Label lblLogin;

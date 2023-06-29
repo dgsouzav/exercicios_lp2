@@ -114,6 +114,9 @@ namespace Estoque
             btnDeletar.Visible = true;
         }
 
-        
+        private void voltarAoMenuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+           this.Close();
+        }
     }
 }

@@ -72,6 +72,7 @@
             this.voltarAoMenuToolStripMenuItem.Name = "voltarAoMenuToolStripMenuItem";
             this.voltarAoMenuToolStripMenuItem.Size = new System.Drawing.Size(99, 20);
             this.voltarAoMenuToolStripMenuItem.Text = "Voltar ao Menu";
+            this.voltarAoMenuToolStripMenuItem.Click += new System.EventHandler(this.voltarAoMenuToolStripMenuItem_Click);
             // 
             // contextMenuStrip1
             // 

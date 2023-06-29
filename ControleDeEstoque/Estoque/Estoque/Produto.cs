@@ -7,18 +7,14 @@ namespace Estoque
         public int ID;
         public string nome;
         public decimal preco;
-        public int fornecedorID;
-        public int categoriaID;
         public int qtd;
         public string descricao;
 
-        public Produto(int ID, string nome, decimal preco, int fornecedorID, int categoriaID, int quantidade, string descricao)
+        public Produto(int ID, string nome, decimal preco, int quantidade, string descricao)
         {
             ID = id;
             Nome = nome;
             Preco = preco;
-            FornecedorID = fornecedorID;
-            CategoriaID = categoriaID;
             Quantidade = quantidade;
             Descricao = descricao;
         }
@@ -50,16 +46,7 @@ namespace Estoque
                     throw new Exception("Preço não pode ser negativo");
             }
         }
-        public int FornecedorID
-        {
-            get { return fornecedorID; }
-            set { fornecedorID = value; }
-        }
-        public int CategoriaID
-        {
-            get { return categoriaID; }
-            set { categoriaID = value; }
-        }
+        
         public int Quantidade
         {
             get { return qtd; }
