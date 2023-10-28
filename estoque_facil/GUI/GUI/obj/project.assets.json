@@ -442,9 +442,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Diogo\\Documents\\GitHub\\estoque_facil\\GUI\\GUI\\GUI.csproj",
-      "projectName": "GUI",
-      "projectPath": "C:\\Users\\Diogo\\Documents\\GitHub\\estoque_facil\\GUI\\GUI\\GUI.csproj",
+      "projectUniqueName": "C:\\Users\\Diogo\\Documents\\GitHub\\estoque_facil\\GUI\\GUI\\UI.csproj",
+      "projectName": "UI",
+      "projectPath": "C:\\Users\\Diogo\\Documents\\GitHub\\estoque_facil\\GUI\\GUI\\UI.csproj",
       "packagesPath": "C:\\Users\\Diogo\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\Diogo\\Documents\\GitHub\\estoque_facil\\GUI\\GUI\\obj\\",
       "projectStyle": "PackageReference",

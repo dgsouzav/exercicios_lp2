@@ -21,7 +21,7 @@ namespace DAL
         { 
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = conexao.ObjetoConexao;
-            cmd.CommandText = "insert into categoria(categoria_nome) values (@nome); select @@IDENTITY;";
+            cmd.CommandText = "insert into categoria(nome_categoria) values (@nome); select @@IDENTITY;";
             cmd.Parameters.AddWithValue("@nome", modelo.CategoriaNome);
 
             conexao.Conectar();
@@ -32,7 +32,7 @@ namespace DAL
         {
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = conexao.ObjetoConexao;
-            cmd.CommandText = "update categoria set categoria_nome = @nome where categoria_id = @id;";
+            cmd.CommandText = "update categoria set nome_categoria = @nome where categoria_id = @id;";
             cmd.Parameters.AddWithValue("@nome", modelo.CategoriaNome);
             cmd.Parameters.AddWithValue("@id", modelo.CategoriaID);
 
@@ -55,7 +55,7 @@ namespace DAL
         public DataTable Localizar(String valor)
         {
             DataTable tabela = new DataTable();
-            SqlDataAdapter da = new SqlDataAdapter("select * from categoria where categoria_nome like '%" + 
+            SqlDataAdapter da = new SqlDataAdapter("select * from categoria where nome_categoria like '%" + 
                 valor + "%'", conexao.StringConexao);
             da.Fill(tabela);
             return tabela;
@@ -74,7 +74,7 @@ namespace DAL
             {
                 registro.Read();
                 modelo.CategoriaID = Convert.ToInt32((string)registro["categoria_id"]);
-                modelo.CategoriaNome = Convert.ToString((string)registro["categoria_nome"]);
+                modelo.CategoriaNome = Convert.ToString((string)registro["nome_categoria"]);
             }
             conexao.Desconectar();
             return modelo;

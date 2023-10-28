@@ -1,4 +1,4 @@
-﻿namespace GUI
+﻿namespace UI
 {
     partial class formCadastro
     {
@@ -30,12 +30,12 @@
         {
             panelDados=new Panel();
             panelButtons=new Panel();
+            btnCancelar=new Button();
             btnInserir=new Button();
             btnLocalizar=new Button();
+            btnSalvar=new Button();
             btnAlterar=new Button();
             btnExcluir=new Button();
-            btnSalvar=new Button();
-            btnCancelar=new Button();
             panelButtons.SuspendLayout();
             SuspendLayout();
             // 
@@ -43,25 +43,37 @@
             // 
             panelDados.Location=new Point(12, 12);
             panelDados.Name="panelDados";
-            panelDados.Size=new Size(760, 420);
+            panelDados.Size=new Size(636, 537);
             panelDados.TabIndex=1;
+            panelDados.Paint+=panelDados_Paint;
             // 
             // panelButtons
             // 
             panelButtons.Controls.Add(btnCancelar);
-            panelButtons.Controls.Add(btnSalvar);
-            panelButtons.Controls.Add(btnExcluir);
-            panelButtons.Controls.Add(btnAlterar);
-            panelButtons.Controls.Add(btnLocalizar);
             panelButtons.Controls.Add(btnInserir);
-            panelButtons.Location=new Point(12, 438);
+            panelButtons.Controls.Add(btnLocalizar);
+            panelButtons.Controls.Add(btnSalvar);
+            panelButtons.Controls.Add(btnAlterar);
+            panelButtons.Controls.Add(btnExcluir);
+            panelButtons.Location=new Point(654, 12);
             panelButtons.Name="panelButtons";
-            panelButtons.Size=new Size(760, 111);
+            panelButtons.Size=new Size(118, 537);
             panelButtons.TabIndex=2;
+            panelButtons.Paint+=panelButtons_Paint;
+            // 
+            // btnCancelar
+            // 
+            btnCancelar.Location=new Point(18, 444);
+            btnCancelar.Name="btnCancelar";
+            btnCancelar.Size=new Size(80, 80);
+            btnCancelar.TabIndex=5;
+            btnCancelar.Text="CANCELAR";
+            btnCancelar.UseVisualStyleBackColor=true;
+            btnCancelar.Click+=btnCancelar_Click;
             // 
             // btnInserir
             // 
-            btnInserir.Location=new Point(32, 17);
+            btnInserir.Location=new Point(18, 14);
             btnInserir.Name="btnInserir";
             btnInserir.Size=new Size(80, 80);
             btnInserir.TabIndex=0;
@@ -71,7 +83,7 @@
             // 
             // btnLocalizar
             // 
-            btnLocalizar.Location=new Point(149, 17);
+            btnLocalizar.Location=new Point(18, 100);
             btnLocalizar.Name="btnLocalizar";
             btnLocalizar.Size=new Size(80, 80);
             btnLocalizar.TabIndex=1;
@@ -79,9 +91,19 @@
             btnLocalizar.UseVisualStyleBackColor=true;
             btnLocalizar.Click+=btnLocalizar_Click;
             // 
+            // btnSalvar
+            // 
+            btnSalvar.Location=new Point(18, 358);
+            btnSalvar.Name="btnSalvar";
+            btnSalvar.Size=new Size(80, 80);
+            btnSalvar.TabIndex=4;
+            btnSalvar.Text="SALVAR";
+            btnSalvar.UseVisualStyleBackColor=true;
+            btnSalvar.Click+=btnSalvar_Click;
+            // 
             // btnAlterar
             // 
-            btnAlterar.Location=new Point(266, 17);
+            btnAlterar.Location=new Point(18, 186);
             btnAlterar.Name="btnAlterar";
             btnAlterar.Size=new Size(80, 80);
             btnAlterar.TabIndex=2;
@@ -91,33 +113,13 @@
             // 
             // btnExcluir
             // 
-            btnExcluir.Location=new Point(383, 17);
+            btnExcluir.Location=new Point(18, 272);
             btnExcluir.Name="btnExcluir";
             btnExcluir.Size=new Size(80, 80);
             btnExcluir.TabIndex=3;
             btnExcluir.Text="EXCLUIR";
             btnExcluir.UseVisualStyleBackColor=true;
             btnExcluir.Click+=btnExcluir_Click;
-            // 
-            // btnSalvar
-            // 
-            btnSalvar.Location=new Point(500, 17);
-            btnSalvar.Name="btnSalvar";
-            btnSalvar.Size=new Size(80, 80);
-            btnSalvar.TabIndex=4;
-            btnSalvar.Text="SALVAR";
-            btnSalvar.UseVisualStyleBackColor=true;
-            btnSalvar.Click+=btnSalvar_Click;
-            // 
-            // btnCancelar
-            // 
-            btnCancelar.Location=new Point(617, 17);
-            btnCancelar.Name="btnCancelar";
-            btnCancelar.Size=new Size(80, 80);
-            btnCancelar.TabIndex=5;
-            btnCancelar.Text="CANCELAR";
-            btnCancelar.UseVisualStyleBackColor=true;
-            btnCancelar.Click+=btnCancelar_Click;
             // 
             // formCadastro
             // 
@@ -127,19 +129,22 @@
             Controls.Add(panelButtons);
             Controls.Add(panelDados);
             Name="formCadastro";
+            StartPosition=FormStartPosition.CenterScreen;
             Text="Cadastro";
+            Load+=formCadastro_Load;
             panelButtons.ResumeLayout(false);
             ResumeLayout(false);
         }
 
         #endregion
-        private Panel panelDados;
-        private Panel panelButtons;
-        private Button btnInserir;
-        private Button btnExcluir;
-        private Button btnAlterar;
-        private Button btnLocalizar;
-        private Button btnCancelar;
-        private Button btnSalvar;
+
+        protected Panel panelDados;
+        protected Panel panelButtons;
+        protected Button btnInserir;
+        protected Button btnExcluir;
+        protected Button btnAlterar;
+        protected Button btnLocalizar;
+        protected Button btnCancelar;
+        protected Button btnSalvar;
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace GUI
+﻿namespace UI
 {
     partial class FormPrincipal
     {
@@ -29,115 +29,110 @@
         private void InitializeComponent()
         {
             menuPrincipal=new MenuStrip();
-            cADASTROToolStripMenuItem=new ToolStripMenuItem();
-            cONSULTAToolStripMenuItem=new ToolStripMenuItem();
-            mToolStripMenuItem=new ToolStripMenuItem();
-            rELATÓRIOSToolStripMenuItem=new ToolStripMenuItem();
-            fERRAMENTASToolStripMenuItem=new ToolStripMenuItem();
-            sOBREToolStripMenuItem=new ToolStripMenuItem();
-            cATEGORIAToolStripMenuItem=new ToolStripMenuItem();
-            sUBCATEGORIAToolStripMenuItem=new ToolStripMenuItem();
-            uNIDADEDEMEDIDAToolStripMenuItem=new ToolStripMenuItem();
-            pRODUTOToolStripMenuItem=new ToolStripMenuItem();
+            CadastroToolStripMenuItem=new ToolStripMenuItem();
+            CategoriaToolStripMenuItem=new ToolStripMenuItem();
+            SubCategoriaToolStripMenuItem=new ToolStripMenuItem();
+            UnidadeMedidaToolStripMenuItem=new ToolStripMenuItem();
+            ProdutoToolStripMenuItem=new ToolStripMenuItem();
             toolStripSeparator1=new ToolStripSeparator();
-            cLIENTEToolStripMenuItem=new ToolStripMenuItem();
-            fORNECEDORToolStripMenuItem=new ToolStripMenuItem();
-            uSUÁRIOToolStripMenuItem=new ToolStripMenuItem();
+            ClienteToolStripMenuItem=new ToolStripMenuItem();
+            FornecedorToolStripMenuItem=new ToolStripMenuItem();
+            UsuarioToolStripMenuItem=new ToolStripMenuItem();
+            ConsultasToolStripMenuItem=new ToolStripMenuItem();
+            MovimentacoesToolStripMenuItem=new ToolStripMenuItem();
+            RelatoriosToolStripMenuItem=new ToolStripMenuItem();
+            SairToolStripMenuItem=new ToolStripMenuItem();
             menuPrincipal.SuspendLayout();
             SuspendLayout();
             // 
             // menuPrincipal
             // 
-            menuPrincipal.Items.AddRange(new ToolStripItem[] { cADASTROToolStripMenuItem, cONSULTAToolStripMenuItem, mToolStripMenuItem, rELATÓRIOSToolStripMenuItem, fERRAMENTASToolStripMenuItem, sOBREToolStripMenuItem });
+            menuPrincipal.Items.AddRange(new ToolStripItem[] { CadastroToolStripMenuItem, ConsultasToolStripMenuItem, MovimentacoesToolStripMenuItem, RelatoriosToolStripMenuItem, SairToolStripMenuItem });
             menuPrincipal.Location=new Point(0, 0);
             menuPrincipal.Name="menuPrincipal";
             menuPrincipal.Size=new Size(784, 24);
             menuPrincipal.TabIndex=0;
             menuPrincipal.Text="menuStrip1";
             // 
-            // cADASTROToolStripMenuItem
+            // CadastroToolStripMenuItem
             // 
-            cADASTROToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { cATEGORIAToolStripMenuItem, sUBCATEGORIAToolStripMenuItem, uNIDADEDEMEDIDAToolStripMenuItem, pRODUTOToolStripMenuItem, toolStripSeparator1, cLIENTEToolStripMenuItem, fORNECEDORToolStripMenuItem, uSUÁRIOToolStripMenuItem });
-            cADASTROToolStripMenuItem.Name="cADASTROToolStripMenuItem";
-            cADASTROToolStripMenuItem.Size=new Size(85, 20);
-            cADASTROToolStripMenuItem.Text="CADASTROS";
+            CadastroToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { CategoriaToolStripMenuItem, SubCategoriaToolStripMenuItem, UnidadeMedidaToolStripMenuItem, ProdutoToolStripMenuItem, toolStripSeparator1, ClienteToolStripMenuItem, FornecedorToolStripMenuItem, UsuarioToolStripMenuItem });
+            CadastroToolStripMenuItem.Name="CadastroToolStripMenuItem";
+            CadastroToolStripMenuItem.Size=new Size(85, 20);
+            CadastroToolStripMenuItem.Text="CADASTROS";
+            CadastroToolStripMenuItem.Click+=CadastroToolStripMenuItem_Click;
             // 
-            // cONSULTAToolStripMenuItem
+            // CategoriaToolStripMenuItem
             // 
-            cONSULTAToolStripMenuItem.Name="cONSULTAToolStripMenuItem";
-            cONSULTAToolStripMenuItem.Size=new Size(83, 20);
-            cONSULTAToolStripMenuItem.Text="CONSULTAS";
+            CategoriaToolStripMenuItem.Name="CategoriaToolStripMenuItem";
+            CategoriaToolStripMenuItem.Size=new Size(188, 22);
+            CategoriaToolStripMenuItem.Text="CATEGORIA";
+            CategoriaToolStripMenuItem.Click+=CategoriaToolStripMenuItem_Click;
             // 
-            // mToolStripMenuItem
+            // SubCategoriaToolStripMenuItem
             // 
-            mToolStripMenuItem.Name="mToolStripMenuItem";
-            mToolStripMenuItem.Size=new Size(117, 20);
-            mToolStripMenuItem.Text="MOVIMENTAÇÕES";
+            SubCategoriaToolStripMenuItem.Name="SubCategoriaToolStripMenuItem";
+            SubCategoriaToolStripMenuItem.Size=new Size(188, 22);
+            SubCategoriaToolStripMenuItem.Text="SUBCATEGORIA";
             // 
-            // rELATÓRIOSToolStripMenuItem
+            // UnidadeMedidaToolStripMenuItem
             // 
-            rELATÓRIOSToolStripMenuItem.Name="rELATÓRIOSToolStripMenuItem";
-            rELATÓRIOSToolStripMenuItem.Size=new Size(84, 20);
-            rELATÓRIOSToolStripMenuItem.Text="RELATÓRIOS";
+            UnidadeMedidaToolStripMenuItem.Name="UnidadeMedidaToolStripMenuItem";
+            UnidadeMedidaToolStripMenuItem.Size=new Size(188, 22);
+            UnidadeMedidaToolStripMenuItem.Text="UNIDADE DE MEDIDA";
             // 
-            // fERRAMENTASToolStripMenuItem
+            // ProdutoToolStripMenuItem
             // 
-            fERRAMENTASToolStripMenuItem.Name="fERRAMENTASToolStripMenuItem";
-            fERRAMENTASToolStripMenuItem.Size=new Size(98, 20);
-            fERRAMENTASToolStripMenuItem.Text="FERRAMENTAS";
-            // 
-            // sOBREToolStripMenuItem
-            // 
-            sOBREToolStripMenuItem.Name="sOBREToolStripMenuItem";
-            sOBREToolStripMenuItem.Size=new Size(54, 20);
-            sOBREToolStripMenuItem.Text="SOBRE";
-            // 
-            // cATEGORIAToolStripMenuItem
-            // 
-            cATEGORIAToolStripMenuItem.Name="cATEGORIAToolStripMenuItem";
-            cATEGORIAToolStripMenuItem.Size=new Size(188, 22);
-            cATEGORIAToolStripMenuItem.Text="CATEGORIA";
-            // 
-            // sUBCATEGORIAToolStripMenuItem
-            // 
-            sUBCATEGORIAToolStripMenuItem.Name="sUBCATEGORIAToolStripMenuItem";
-            sUBCATEGORIAToolStripMenuItem.Size=new Size(188, 22);
-            sUBCATEGORIAToolStripMenuItem.Text="SUBCATEGORIA";
-            // 
-            // uNIDADEDEMEDIDAToolStripMenuItem
-            // 
-            uNIDADEDEMEDIDAToolStripMenuItem.Name="uNIDADEDEMEDIDAToolStripMenuItem";
-            uNIDADEDEMEDIDAToolStripMenuItem.Size=new Size(188, 22);
-            uNIDADEDEMEDIDAToolStripMenuItem.Text="UNIDADE DE MEDIDA";
-            // 
-            // pRODUTOToolStripMenuItem
-            // 
-            pRODUTOToolStripMenuItem.Name="pRODUTOToolStripMenuItem";
-            pRODUTOToolStripMenuItem.Size=new Size(188, 22);
-            pRODUTOToolStripMenuItem.Text="PRODUTO";
+            ProdutoToolStripMenuItem.Name="ProdutoToolStripMenuItem";
+            ProdutoToolStripMenuItem.Size=new Size(188, 22);
+            ProdutoToolStripMenuItem.Text="PRODUTO";
             // 
             // toolStripSeparator1
             // 
             toolStripSeparator1.Name="toolStripSeparator1";
             toolStripSeparator1.Size=new Size(185, 6);
             // 
-            // cLIENTEToolStripMenuItem
+            // ClienteToolStripMenuItem
             // 
-            cLIENTEToolStripMenuItem.Name="cLIENTEToolStripMenuItem";
-            cLIENTEToolStripMenuItem.Size=new Size(188, 22);
-            cLIENTEToolStripMenuItem.Text="CLIENTE";
+            ClienteToolStripMenuItem.Name="ClienteToolStripMenuItem";
+            ClienteToolStripMenuItem.Size=new Size(188, 22);
+            ClienteToolStripMenuItem.Text="CLIENTE";
             // 
-            // fORNECEDORToolStripMenuItem
+            // FornecedorToolStripMenuItem
             // 
-            fORNECEDORToolStripMenuItem.Name="fORNECEDORToolStripMenuItem";
-            fORNECEDORToolStripMenuItem.Size=new Size(188, 22);
-            fORNECEDORToolStripMenuItem.Text="FORNECEDOR";
+            FornecedorToolStripMenuItem.Name="FornecedorToolStripMenuItem";
+            FornecedorToolStripMenuItem.Size=new Size(188, 22);
+            FornecedorToolStripMenuItem.Text="FORNECEDOR";
             // 
-            // uSUÁRIOToolStripMenuItem
+            // UsuarioToolStripMenuItem
             // 
-            uSUÁRIOToolStripMenuItem.Name="uSUÁRIOToolStripMenuItem";
-            uSUÁRIOToolStripMenuItem.Size=new Size(188, 22);
-            uSUÁRIOToolStripMenuItem.Text="USUÁRIO";
+            UsuarioToolStripMenuItem.Name="UsuarioToolStripMenuItem";
+            UsuarioToolStripMenuItem.Size=new Size(188, 22);
+            UsuarioToolStripMenuItem.Text="USUÁRIO";
+            // 
+            // ConsultasToolStripMenuItem
+            // 
+            ConsultasToolStripMenuItem.Name="ConsultasToolStripMenuItem";
+            ConsultasToolStripMenuItem.Size=new Size(83, 20);
+            ConsultasToolStripMenuItem.Text="CONSULTAS";
+            // 
+            // MovimentacoesToolStripMenuItem
+            // 
+            MovimentacoesToolStripMenuItem.Name="MovimentacoesToolStripMenuItem";
+            MovimentacoesToolStripMenuItem.Size=new Size(117, 20);
+            MovimentacoesToolStripMenuItem.Text="MOVIMENTAÇÕES";
+            // 
+            // RelatoriosToolStripMenuItem
+            // 
+            RelatoriosToolStripMenuItem.Name="RelatoriosToolStripMenuItem";
+            RelatoriosToolStripMenuItem.Size=new Size(84, 20);
+            RelatoriosToolStripMenuItem.Text="RELATÓRIOS";
+            // 
+            // SairToolStripMenuItem
+            // 
+            SairToolStripMenuItem.Name="SairToolStripMenuItem";
+            SairToolStripMenuItem.Size=new Size(43, 20);
+            SairToolStripMenuItem.Text="SAIR";
             // 
             // FormPrincipal
             // 
@@ -149,6 +144,7 @@
             Name="FormPrincipal";
             StartPosition=FormStartPosition.CenterScreen;
             Text="Estoque Fácil";
+            Load+=FormPrincipal_Load;
             menuPrincipal.ResumeLayout(false);
             menuPrincipal.PerformLayout();
             ResumeLayout(false);
@@ -158,19 +154,18 @@
         #endregion
 
         private MenuStrip menuPrincipal;
-        private ToolStripMenuItem cADASTROToolStripMenuItem;
-        private ToolStripMenuItem cONSULTAToolStripMenuItem;
-        private ToolStripMenuItem mToolStripMenuItem;
-        private ToolStripMenuItem rELATÓRIOSToolStripMenuItem;
-        private ToolStripMenuItem fERRAMENTASToolStripMenuItem;
-        private ToolStripMenuItem sOBREToolStripMenuItem;
-        private ToolStripMenuItem cATEGORIAToolStripMenuItem;
-        private ToolStripMenuItem sUBCATEGORIAToolStripMenuItem;
-        private ToolStripMenuItem uNIDADEDEMEDIDAToolStripMenuItem;
-        private ToolStripMenuItem pRODUTOToolStripMenuItem;
+        private ToolStripMenuItem CadastroToolStripMenuItem;
+        private ToolStripMenuItem ConsultasToolStripMenuItem;
+        private ToolStripMenuItem MovimentacoesToolStripMenuItem;
+        private ToolStripMenuItem RelatoriosToolStripMenuItem;
+        private ToolStripMenuItem CategoriaToolStripMenuItem;
+        private ToolStripMenuItem SubCategoriaToolStripMenuItem;
+        private ToolStripMenuItem UnidadeMedidaToolStripMenuItem;
+        private ToolStripMenuItem ProdutoToolStripMenuItem;
         private ToolStripSeparator toolStripSeparator1;
-        private ToolStripMenuItem cLIENTEToolStripMenuItem;
-        private ToolStripMenuItem fORNECEDORToolStripMenuItem;
-        private ToolStripMenuItem uSUÁRIOToolStripMenuItem;
+        private ToolStripMenuItem ClienteToolStripMenuItem;
+        private ToolStripMenuItem FornecedorToolStripMenuItem;
+        private ToolStripMenuItem UsuarioToolStripMenuItem;
+        private ToolStripMenuItem SairToolStripMenuItem;
     }
 }

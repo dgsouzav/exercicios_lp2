@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace BLL
 {
-    internal class BLLCategoria
+    public class BLLCategoria
     {
         private DALConexao conexao;
 

@@ -13,7 +13,6 @@ namespace BLL
             this.undmed_id = 0;
             this.undmed_nome = "";
         }
-
         public ModeloUnidadeMedida(int undmed_id, String undmed_nome)
         {
             this.undmed_id = undmed_id;
